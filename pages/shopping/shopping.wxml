@@ -1,0 +1,90 @@
+<!--pages/shop/shop.wxml-->
+<view class='container'>
+    <!-- <view class="Detele right blue ft30" bindtap="delete" hidden="{{iscart}}">删除</view>
+    <view class="tip" hidden="{{iscart}}">
+        <text class="blue ft20">免运费</text>
+        <view>北京地区还差
+            <text class="blue">300</text>免运费，快去凑单吧！</view>
+        <view class="blue">去凑单
+            <image src="../../images/next02.png"></image>
+        </view>
+    </view> -->
+    <view class="Detele ft30" hidden="{{iscart}}">
+        <text>共{{count}}件宝贝</text>
+        <text bindtap="delete" class="blue">删除</text>
+    </view>
+    <view class='list whitebg' hidden="{{iscart}}">
+        <block wx:for='{{cart_list}}' wx:key="index" wx:for-index="in">
+            <view class="good_list {{item.isTouchMove ? 'touch-move-active' : ''}}" bindtap='' data-index="{{index}}" bindtouchstart="" bindtouchmove="">
+                <view class='list-main' bindtap='godetails'>
+                    <view class='list-main-icon' catchtap='selectGood' data-c_issel="{{item.c_issel}}"  data-id="{{item.c_id}}" data-in="{{in}}" >
+                        <image src='../../images/selected.png' wx:if="{{item.c_issel==2}}"></image>
+                        <image src='../../images/select.png' wx:else></image>
+                    </view>
+                    <image src='{{item.p_img}}'  data-p_id="{{item.c_pid}}"  bindtap="details"></image>
+                    <view class='list-main-cont'>
+                        <view class='twop ft26'>{{item.p_name}}</view>
+                        <view class='gary garybg ft22 mt10 selgg' catchtap='select'>{{item.sku_name}}</view>
+                        <view class='list-buy mt10'>
+                            <view class='pink bold mt20'>
+                                <text class='ft22'>￥</text>
+                                <text class='ft32'>{{item.c_price}}</text>
+                            </view>
+                            <!--数量-->
+                            <amount count="{{item.c_num}}" bind:myevent='getCount' data-id="{{item.c_id}}"></amount>
+                        </view>
+                    </view>
+                </view>
+                <!-- 删除 -->
+                <view class='del' catchtap="del" data-index="{{index}}">删除</view>
+            </view>
+        </block>
+    </view>
+    <!--购物车空-->
+    <view class="shopnone whitebg"  hidden="{{iscarts}}">
+        <image src="../../images/shopnone.png"></image>
+        <view>您的购物车空空如也</view>
+        <button type="button" class="bluebg white" bindtap="gohome">去购物</button>
+    </view>
+    <!--推荐商品-->
+    <view class="in-goods">
+        <view class="in-goods-title blue ft34">
+            <image src="../../images/icon23.png"></image>
+            <text>为您推荐</text>
+        </view>
+        <view class="in-goods-list mt20">
+            <block wx:for="{{product_list}}" wx:key="index">
+                <view class="in-goods-main whitebg" bindtap="details" data-p_id="{{item.id}}">
+                    <image src="{{item.p_img}}"></image>
+                    <view class="twop">{{item.p_name}}</view>
+                    <view class="in-goods-main-shop">
+                        <view>
+                            <text class="blue bold"> <text class="ft20">￥</text>
+                            <text>{{item.p_oldprice}}</text> </text>
+                            <text class="gary ft20 ml10">已售<text>{{item.p_sales}}</text>件</text>
+                        </view>
+                        <image src="../../images/cart1.png" catchtap="shop" data-p_id="{{item.id}}"></image>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+    <!--底部-->
+    <view class='height'></view>
+    <view class='footer whitebg'>
+        <view>
+            <view class='selall' catchtap='selectGoodAll'>
+                <image src='../../images/selected.png' wx:if="{{sel==2}}"></image>
+                <image src='../../images/select.png' wx:else></image>
+                <text>全选</text>
+            </view>
+            <view class='ml50'>
+                <text class='ml20'>合计：</text>
+                <text class='red'>￥{{total}}</text>
+            </view>
+            <button type='button' class='bluebg white ft30' bindtap='buy'>结算</button>
+        </view>
+    </view>
+    <!--选择规格-->
+    <buy selectBox="{{selectBox}}"  product_detail='{{product_detail}}' sku_data="{{product_detail.sku_data}}" goods_spec="{{goods_spec}}" skuid_list="{{skuid_list}}" ladder_data="{{ladder_data}}" stock="{{stock}}" sku_name="{{sku_name}}" sku_names="{{sku_names}}" num="{{num}}" sku_id="{{sku_id}}"  price1="{{sku_price}}" price="{{sku_price}}" bind:myevent="shuaxin"></buy>
+</view>

@@ -1,0 +1,11 @@
+<!--pages/coupon/success.wxml-->
+<view class='container'>
+    <view class='success center'>
+        <image src='../../images/success.png'></image>
+        <view class='mt100 ft36'>恭喜你购买商品成功</view>
+    </view>
+    <view class='success-btn'>
+        <button type='button' class='blue ft30 whitebg' bindtap='return'>查看订单</button>
+        <button type='button' bindtap='home' class="bluebg white ft30">继续逛逛</button>
+    </view>
+</view>

@@ -1,0 +1,22 @@
+/* pages/search/result.wxss */
+@import '../index/index';
+@import '../search/search';
+
+.select {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.select>view {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+.select image {
+    display: block;
+    width: 16rpx;
+    height: 8rpx;
+    margin: 10rpx;
+}

@@ -1,0 +1,15 @@
+<!--pages/set/about.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="container">
+    <view class="about">
+        <!-- <view class="ft42 center">此处是关于食界商城的文章</view>
+        <image src="../../images/about.png"></image>
+        <view class="about-text">
+            食品商城简介，食品商城的简单介绍，食品商城的文章内容查看。食品商城APP简介，食品商城的简单介绍，食品商城的文章内容查看，食品商城APP简介，食品商城的简单介绍，食品商城的文章内容查看。
+        </view>
+        <view class="about-text">
+            食品商城简介，食品商城的简单介绍，食品商城的文章内容查看。食品商城APP简介，食品商城的简单介绍，食品商城的文章内容查看，食品商城APP简介，食品商城的简单介绍，食品商城的文章内容查看。
+        </view> -->
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+</view>

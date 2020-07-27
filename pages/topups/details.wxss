@@ -1,0 +1,14 @@
+/* pages/topups/details.wxss */
+page{
+    background: #FFFFFF;
+}
+.deta{
+    padding: 3%;
+    border-bottom: 1px solid #EEEEEE;
+}
+.deta>view{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,135 @@
+/* pages/order/order.wxss */
+
+.order-top {
+    margin: 3%;
+}
+
+.order-top>image {
+    width: 100%;
+    height: 12rpx;
+    display: block;
+}
+
+.order-top>view {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.order-top>view image {
+    width: 17rpx;
+    height: 30rpx;
+    display: block;
+}
+
+.order-top>view>view {
+    width: 95%;
+}
+
+.take {
+    margin: 0 3%;
+}
+
+.take view {
+    width: 94%;
+    margin: 0 auto;
+    padding: 20rpx 30rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.hot {
+    padding: 3%;
+}
+
+.hot-title {
+    padding-left: 20rpx;
+    border-left: 5px solid #0da4fc;
+}
+
+.hot-main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    padding: 3%;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.hot-main>image {
+    width: 240rpx;
+    height: 200rpx;
+}
+
+.hot-main view>image {
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.hot-main>view {
+    width: 60%;
+}
+
+.hot-main .gary, .order-deta-mian {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-deta {
+    margin: 3%;
+    padding: 3%;
+}
+
+.order-deta-mian {
+    padding: 3%;
+}
+.order-deta-mian picker {
+    width: 100rpx;
+    text-align: center;
+}
+.order-deta-mian label {
+    width: 20%;
+}
+
+.order-deta-mian input, .order-deta-mian text {
+    width: 80%;
+    margin-left: 5%;
+
+}
+
+.order-deta-mian image {
+    width: 10rpx;
+    height: 18rpx;
+}
+
+.order-deta .right {
+    padding: 3%;
+    border-top: 1px solid #f3f3f3;
+}
+
+.total {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.total>text{
+    width: 65%;
+    text-align: right;
+}
+.total button {
+    width: 200rpx !important;
+    height: 70rpx;
+    line-height: 70rpx;
+    border-radius: 60px;
+    padding: 0;
+    margin: 0 !important;
+}

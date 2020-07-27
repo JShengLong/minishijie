@@ -1,0 +1,36 @@
+<!--pages/address/address.wxml-->
+<view class='container'>
+    <view class='addressBox'>
+        <radio-group class="radio-group">
+            <view class='address whitebg' wx:for="{{list}}" wx:key wx:for-index="a">
+                <view class='address-name'>
+                    <text>收货人：{{item.name}}</text>
+                    <text>{{item.phone}}</text>
+                </view>
+                <view class='garyb ft26 mt10 address-content'>
+                    <text>收货地址：</text>
+                    <text>{{item.name_path}}{{item.address}}</text>
+                </view>
+                <view class='address-set mt20'>
+                    <view>
+                        <radio color='#0DA4FC' checked="{{check[item.isDefault]}}" bindtap="defl" data-index="{{item.id}}"></radio>
+                    </view>
+                    <view class='address-btn'>
+                        <image src='../../images/delete1.png' bindtap='delete' data-id="{{item.id}}"></image>
+                        <image src='../../images/edit.png' bindtap='edit' data-id="{{item.id}}"></image>
+                    </view>
+                </view>
+            </view>
+            
+        </radio-group>
+    </view>
+    <!--底部-->
+    <view class='height'></view>
+    <navigator url='../address/modify' hover-class='none'>
+        <view class='footer garybg'>
+            <button type='button' class='bluebg white ft30'>
+                添加新地址
+            </button>
+        </view>
+    </navigator>
+</view>

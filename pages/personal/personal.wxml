@@ -1,0 +1,128 @@
+<!--pages/personal/personal.wxml-->
+<view class="container">
+	<view class="per-top white">
+		<image src="../../images/bg01.png"></image>
+		<view>
+			<navigator url="../data/data" hover-class="none" wx:if="{{member_info!=''}}">
+				<image src="{{member_info.m_thumb}}"></image>
+			</navigator>
+			<view wx:if="{{member_info!=''}}">
+				<view class="ft34 bold">
+					<navigator url="../data/data" hover-class="none">
+						<text class="onep">{{member_info.m_nickname}}</text>
+					</navigator>
+					<navigator url="../set/set" hover-class="none">
+						<image src="../../images/set.png"></image>
+					</navigator>
+				</view>
+				<block wx:if="{{code!=''}}">
+					<view class="mt20">
+						<text>邀请码：<text selectable='true' bindlongtap='copy'>{{code}}</text></text>
+						<button class="ft24 white" bindtap='copyBtn'>复制邀请码</button>
+					</view>
+				</block>
+
+			</view>
+            <navigator url="../authorization/authorization" hover-class="none" wx:if="{{member_info==''}}">
+				<image src="{{logo}}"></image>
+			</navigator>
+			<view wx:if="{{member_info==''}}">
+				<view class="ft34 bold">
+					<navigator url="../authorization/authorization" hover-class="none">
+						<text class="onep">请点击登录</text>
+					</navigator>
+					
+				</view>
+
+			</view>
+
+		</view>
+	</view>
+	<view class="perBox whitebg">
+		<navigator url hover-class="none" bindtap="myorder"  data-status="0" data-currentData="0">
+			<view class="per-or per-or-one">
+				<label class="ft30">订单信息</label>
+				<view>
+					<text class="gary right">查看全部</text>
+					<image src="../../images/next.png" class="next ml10"></image>
+				</view>
+			</view>
+		</navigator>
+		<view class="per-or">
+			<navigator url hover-class="none" bindtap="myorder"  data-status="1" data-currentData="1">
+				<view>
+					<image src="../../images/icon07.png"></image>
+					<view class="mt10">待付款</view>
+				</view>
+			</navigator>
+			<navigator url hover-class="none" bindtap="myorder"  data-status="2" data-currentData="2">
+				<view>
+					<image src="../../images/icon08.png"></image>
+					<view class="mt10">待发货</view>
+				</view>
+			</navigator>
+			<navigator hover-class="none" bindtap="myorder"  data-status="3" data-currentData="3">
+				<view>
+					<image src="../../images/icon09.png"></image>
+					<view class="mt10">待收/取货</view>
+				</view>
+			</navigator>
+			<navigator url hover-class="none" bindtap="myorder" data-status="4" data-currentData="4">
+				<view>
+					<image src="../../images/icon10.png"></image>
+					<view class="mt10">待评价</view>
+				</view>
+			</navigator>
+			<navigator url="../myorder/refundList" hover-class="none">
+				<view>
+					<image src="../../images/icon11.png"></image>
+					<view class="mt10">退款/售后</view>
+				</view>
+			</navigator>
+		</view>
+	</view>
+	<view class="per-list whitebg">
+		<navigator url bindtap="wallet" hover-class="none">
+			<view class="per-list-mian">
+				<image src="../../images/icon04.png" class="icon"></image>
+				<view class="ft30">我的钱包</view>
+				<image src="../../images/next.png"></image>
+			</view>
+		</navigator>
+		<navigator url bindtap="integral"  hover-class="none">
+			<view class="per-list-mian">
+				<image src="../../images/icon02.png" class="icon"></image>
+				<view class="ft30">我的积分</view>
+				<image src="../../images/next.png"></image>
+			</view>
+		</navigator>
+		<navigator url bindtap="popularize"  hover-class="none">
+			<view class="per-list-mian">
+				<image src="../../images/icon06.png" class="icon"></image>
+				<view class="ft30">我的推广</view>
+				<image src="../../images/next.png"></image>
+			</view>
+		</navigator>
+		<navigator url bindtap="collect"  hover-class="none">
+			<view class="per-list-mian">
+				<image src="../../images/icon05.png" class="icon"></image>
+				<view class="ft30">常用清单</view>
+				<image src="../../images/next.png"></image>
+			</view>
+		</navigator>
+		<navigator url bindtap="address"  hover-class="none">
+			<view class="per-list-mian">
+				<image src="../../images/icon01.png" class="icon"></image>
+				<view class="ft30">我的地址</view>
+				<image src="../../images/next.png"></image>
+			</view>
+		</navigator>
+		<navigator url="../contact/contact" hover-class="none">
+			<view class="per-list-mian">
+				<image src="../../images/icon03.png" class="icon"></image>
+				<view class="ft30">联系客服</view>
+				<image src="../../images/next.png"></image>
+			</view>
+		</navigator>
+	</view>
+</view>

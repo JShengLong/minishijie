@@ -1,0 +1,93 @@
+<!--pages/myorder/myorder.wxml-->
+<view class="container">
+	<view class="title whitebg">
+		<view class='{{currentData == 0 ? "focus" : ""}}' data-current="0" data-status="" bindtap='changeTab'>全部</view>
+		<view class='{{currentData == 1 ? "focus" : ""}}' data-current="1" data-status="1" bindtap='changeTab'>待付款</view>
+		<view class='{{currentData == 2 ? "focus" : ""}}' data-current="2" data-status="2" bindtap='changeTab'>待发货</view>
+		<view class='{{currentData == 3 ? "focus" : ""}}' data-current="3" data-status="3" bindtap='changeTab'>待收/取货</view>
+		<view class='{{currentData == 4 ? "focus" : ""}}' data-current="4" data-status="4" bindtap='changeTab'>待评价</view>
+	</view>
+	<view class="order">
+		<block wx:for="{{order_list}}" wx:key='index'>
+			<view class="order-mian whitebg">
+				<view class="order-title order-mian-flex">
+					<text class="gary">订单编号：{{item.o_sn}}</text>
+					<text class="blue" wx:if="{{item.o_status==1}}">
+                    待付款
+                    </text>
+					<text class="blue" wx:if="{{item.o_status==2}}">
+                    待发货
+                    </text>
+					<text class="blue" wx:if="{{item.o_status==3 && item.o_distribution_mode!=2}}">
+                    待收货
+                    </text>
+					<text class="blue" wx:if="{{item.o_status==3 && item.o_distribution_mode==2}}">
+                    待取货
+                    </text>
+					<text class="blue" wx:if="{{item.o_status==4}}">
+                    待评价
+                    </text>
+					<text class="blue" wx:if="{{item.o_status==5}}">
+                    已评价
+                    </text>
+					<text class="blue" wx:if="{{item.o_status==6}}">
+                    已取消
+                    </text>
+					<text class="blue" wx:if="{{item.o_status==7}}">
+                    交易关闭
+                    </text>
+				</view>
+				<block wx:for="{{item.order_detail}}" wx:for-item="items">
+					<view class="order-mian-flex mt20" bindtap="look" data-id="{{item.o_id}}">
+						<image src="{{items.d_img}}"></image>
+						<view>
+							<view class="twop mt10">{{items.d_name}}</view>
+							<view class="garyb mt10">{{items.d_sku}}</view>
+							<view class="order-mian-flex mt10">
+								<text class="blue">￥{{items.d_price}}</text>
+								<text>x{{items.d_num}}</text>
+							</view>
+						</view>
+					</view>
+				</block>
+
+				<view class="blue right mt20">
+					<text class="ft24">合计：￥</text>
+					<text class="ft36">{{item.o_actual_payment}}</text>
+				</view>
+				<view class="order-mian-flex order-mian-flex-button mt20">
+					<text bindtap="look" data-id="{{item.o_id}}">查看订单</text>
+					<text bindtap="delete" data-id="{{item.o_id}}" wx:if="{{item.o_status==5}}">删除订单</text>
+
+					<text bindtap="cancel" data-id="{{item.o_id}}" wx:if="{{item.o_status==1}}">取消订单</text>
+					<text wx:if="{{item.o_status==1}}" data-id="{{item.o_id}}" bindtap="pay">立即付款</text>
+
+					<!-- <text bindtap="refund" data-id="{{item.o_id}}"  wx:if="{{item.o_status==2}}">申请退款</text> -->
+					<text bindtap="looks" data-id="{{item.o_id}}" wx:if="{{item.o_status!=1}}">再次购买</text>
+
+					<text bindtap="looklogic" data-id="{{item.o_id}}" wx:if="{{item.o_status==3}}">查看物流</text>
+					
+					<text bindtap="sure" data-id="{{item.o_id}}" data-info="确认收货" wx:if="{{item.o_status==3 && item.o_distribution_mode!=2}}">确认收货</text>
+					<text bindtap="sure" data-id="{{item.o_id}}" data-info="确认取货" wx:if="{{item.o_status==3 && item.o_distribution_mode==2}}">确认取货</text>
+					<text bindtap="write" data-id="{{item.o_id}}" wx:if="{{item.o_status==4}}">去评价</text>
+				</view>
+			</view>
+		</block>
+	</view>
+</view>
+<view wx:if='{{showPayPwdInput}}'>
+    <view class='bg_layer'></view>
+    <view class='input_main'>
+        <view class='input_title'>
+            <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+            <text>输入支付密码</text>
+        </view>
+        <view class='input_tip'></view>
+        <view class='input_row' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                <text wx:if='{{payment_password.length>i}}'></text>
+            </view>
+        </view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+    </view>
+</view>

@@ -1,0 +1,22 @@
+/* pages/topups/bil.wxss */
+
+.bill {
+    padding: 100rpx 0;
+}
+
+.set label {
+    width: 20%;
+}
+
+.set input, .set text {
+    width: 80%;
+}
+
+.set view {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f4f4f4;
+}

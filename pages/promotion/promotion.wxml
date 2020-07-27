@@ -1,0 +1,55 @@
+<!--pages/search/result.wxml-->
+<view class="container">
+    <view class="select whitebg">
+    
+        <block wx:for="{{tab}}" wx:key="unique">
+            <view class='{{item.selected  ? "blue" : ""}}' bindtap='changeTab2' data-index="{{index}}">
+                <text>{{item.name}}</text>
+                <block wx:if="{{item.name != '综合'}}">
+                    <view wx:if="{{item.selected}}">
+                        <view wx:if="{{item.type =='desc'}}">
+                            <image src="../../images/icon36.png"></image>
+                        </view>
+                        <view wx:else>
+                            <image src="../../images/icon18.png"></image>
+                        </view>
+                        <view wx:if="{{item.type =='asc'}}">
+                            <image src="../../images/icon37.png"></image>
+                        </view>
+                        <view wx:else>
+                            <image src="../../images/icon19.png"></image>
+                        </view>
+                    </view>
+                    <view wx:else>
+                        <view>
+                            <image src="../../images/icon18.png"></image>
+                        </view>
+                        <view>
+                            <image src="../../images/icon19.png"></image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </block>
+    </view>
+    <!--列表-->
+    <view class="hot">
+        <block wx:for="{{product_list}}" wx:key="index">
+            <view class="hot-main whitebg" data-value="{{item.id}}" bindtap="details">
+                <image src="{{item.p_img}}"></image>
+                <view>
+                    <view class="ft30 twop">{{item.p_name}}</view>
+                    <view class="red mt10">
+                        <text class="ft20">￥</text>
+                        <text class="ft32">{{item.p_oldprice}}</text>
+                    </view>
+                    <view class="gary ft26 mt10">
+                        <text>已售{{item.p_sales}}件</text>
+                        <image src="../../images/icon16.png" catchtap="shop" data-p_id="{{item.id}}"></image>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <buy selectBox="{{selectBox}}"  product_detail='{{product_detail}}' sku_data="{{product_detail.sku_data}}" goods_spec="{{goods_spec}}" skuid_list="{{skuid_list}}" ladder_data="{{ladder_data}}" stock="{{stock}}" sku_name="{{sku_name}}" sku_names="{{sku_names}}" num="{{num}}" sku_id="{{sku_id}}"  price1="{{sku_price}}"></buy>
+</view>

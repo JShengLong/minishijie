@@ -1,0 +1,63 @@
+<!--pages/myorder/logisticsDetails.wxml-->
+<view class="container">
+	<view class="logistic-title bluebg white" wx:if="{{detail.status==1}}">
+		<text wx:if="{{detail.refundReview==1}}" >退款中</text>
+		<text wx:if="{{detail.refundReview==2}}" >商家同意退款</text>
+		<text wx:if="{{detail.refundReview==3}}" >退款成功</text>
+		<text wx:if="{{detail.refundReview==4}}" >退款驳回</text>
+	</view>
+	<view class="logistic-title bluebg white" wx:if="{{detail.status==2}}">
+		<text wx:if="{{detail.refundReview==1}}" >退款中</text>
+		<text wx:if="{{detail.refundReview==2  && detail.express==''}}" >请退款并填写物流信息</text>
+		<text wx:if="{{detail.refundReview==2  && detail.express!=''}}" >等待商家确认</text>
+		<text wx:if="{{detail.refundReview==3}}" >退款成功</text>
+		<text wx:if="{{detail.refundReview==4}}" >退款驳回</text>
+	</view>
+	<view class="logistic-tip" wx:if="{{detail.status==2&&detail.refundReview==2}}">商家已同意退货申请，请尽快退货</view>
+	<view class="logistic-address whitebg">
+		<view wx:if="{{detail.status==2&&detail.refundReview==2}}">
+			<text>{{detail.name}}</text>
+			<text>{{detail.phone}}</text>
+		</view>
+		<text class="gary mt10"  wx:if="{{detail.status==2&&detail.refundReview==2}}">收货地址：{{detail.address}}</text>
+		<text class="mt10"  wx:if="{{detail.status==2&&detail.refundReview==2}}">退货说明：亲，你好！请将包装寄回，不影响我们二次销售</text>
+		
+		<!--<text class="mt10">退款联系电话：{{detail.rephone}}</text>-->
+		<block wx:for="{{express}}" wx:if="{{detail.status==2&&detail.express!=''}}">
+		<text class="mt10">退款物流公司：{{item.name}}</text>
+		<text class="mt10">退款物流单号：{{item.sn}}</text>
+		</block>
+		
+		<view class="mt20">
+			<view>
+				<image src="../../images/icon31.png"></image>
+				<button type="button" open-type="contact" class="ft30 bold">联系客服</button>
+			</view>
+			<navigator url="../myorder/writelogistics?id={{detail.id}}" hover-class="none" wx:if="{{detail.status==2 && detail.refundReview==2 && detail.express==''}}">
+				<text class="blue">填写物流单号</text>
+			</navigator>
+		</view>
+	</view>
+	<!--商品信息-->
+	<view class="product whitebg mt20">
+		<image src="{{detail.d_img}}"></image>
+		<view>
+			<view>{{detail.d_name}}</view>
+			<view class="mt10 gary ft24">
+				<text>规格：{{detail.d_sku}}</text>
+				<text class="ml50">数量：{{detail.d_num}}</text> </view>
+			<view class="mt20 blue bold ft32">￥{{detail.d_price}}</view>
+		</view>
+	</view>
+	<!--订单信息-->
+	<view class="order-data whitebg">
+		<view>退货金额：{{detail.total}}</view>
+		<view>退货积分：{{detail.integral}}</view>
+		<view>退货原因：{{detail.info}}</view>
+		<view wx:if="{{detail.createtime!=''}}">申请时间：{{detail.createtime}}</view>
+		<view wx:if="{{detail.shopTime!=''}}">商家<text wx:if="{{detail.refundReview==2}}" >同意</text><text wx:if="{{detail.refundReview==4}}" >驳回</text>时间：{{detail.shopTime}}</view>
+		<view wx:if="{{detail.refundReview==4}}">驳回原因：{{detail.reject_info}}</view>
+		<view wx:if="{{detail.endTime!=''}}">完成时间：{{detail.endTime}}</view>
+		<view>退款编号：{{detail.sn}}</view>
+	</view>
+</view>

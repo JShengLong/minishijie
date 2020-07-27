@@ -1,0 +1,26 @@
+/* pages/set/modifyph.wxss */
+@import '../set/set';
+
+.set label {
+    width: 20%;
+}
+
+.set input {
+    width: 80%;
+}
+
+.set view button{
+    width: 25% !important;
+    height: 50rpx;
+    line-height: 50rpx;
+    border: 1px solid #0da4fc;
+    border-radius: 60px;
+}
+
+.submit button{
+    width: 90% !important;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 80rpx auto;
+    border-radius: 60px;
+}

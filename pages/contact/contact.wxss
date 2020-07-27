@@ -1,0 +1,25 @@
+/* pages/contact/contact.wxss */
+
+page {
+    border-top: 1px solid #ebebeb;
+}
+
+.contact {
+    margin: 5%;
+    padding: 5%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #e0e5e9;
+}
+
+.contact image {
+    width: 142rpx;
+    height: 201rpx;
+    margin-bottom: 30rpx;
+}
+
+.contact button {
+    width: 180rpx !important;
+    height: 70rpx;
+    line-height: 70rpx;
+    border-radius: 5px;
+}

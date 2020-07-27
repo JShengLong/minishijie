@@ -1,0 +1,27 @@
+<!--pages/set/modifypw.wxml-->
+<view class="container">
+    <view class="set mt20 whitebg">
+        <view>
+            <label>手机号</label>
+            <text>{{phone}}</text>
+        </view>
+        <view>
+            <label>验证码</label>
+            <input type="text" placeholder="请输入验证码" style="width:55%;" bindinput="update_code"></input>
+            <button disabled='{{disabled}}' data-id="2" class="bluebg white ft22" bindtap="getVerificationCode">
+                {{time}}
+            </button>
+        </view>
+        <view>
+            <label>新密码</label>
+            <input type="password" placeholder="请输入新密码" bindinput="pwd1"></input>
+        </view>
+        <view>
+            <label>确认密码</label>
+            <input type="password" placeholder="再次输入新密码" bindinput="pwd2"></input>
+        </view>
+    </view>
+    <view class="submit">
+        <button type="button" class="bluebg white"  bindtap="sendSms">确认</button>
+    </view>
+</view>

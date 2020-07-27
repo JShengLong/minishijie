@@ -1,0 +1,35 @@
+/* pages/list/list.wxss */
+
+.list-main {
+    margin: 20rpx 30rpx;
+    padding: 30rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #ededed;
+    border-radius: 5px;
+}
+
+.list-main:last-child {
+    border-bottom: 0;
+}
+
+.list-main>view {
+    width: 60%;
+}
+
+.list-main>image {
+    width: 240rpx;
+    height: 200rpx;
+}
+
+.list-buy image {
+    width: 34rpx;
+    height: 34rpx;
+}
+
+.list-buy {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,0 +1,65 @@
+/* pages/personal/data.wxss */
+
+.data {
+    padding: 2%;
+    margin: 3%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #e0e5e9;
+}
+
+.data-mian {
+    height: 100rpx;
+    padding: 0 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ededed;
+}
+
+.data-mian image {
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 100%;
+}
+
+.data-mian input {
+    text-align: right;
+}
+
+.data-mian text {
+    display: inline-block;
+    width: 70%;
+    text-align: right;
+}
+
+.data-mian label {
+    width: 20%;
+}
+
+.data-mian picker {
+    width: 80%;
+    height: 100%;
+    line-height: 100rpx;
+}
+
+.data-mian .next {
+    width: 12rpx !important;
+    height: 22rpx !important;
+}
+
+.footer {
+    bottom: 40rpx;
+}
+
+.footer button {
+    width: 90% !important;
+    margin: 21rpx  5% 0;
+    height: 90rpx;
+    line-height: 90rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}

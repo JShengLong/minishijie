@@ -1,0 +1,108 @@
+/* pages/integral/integral.wxss */
+
+page {
+    background: #fff;
+}
+.integral{
+    position: relative;
+    top:-80rpx;
+}
+.integral-top {
+    padding: 5% 3% 15%;
+    text-align: center;
+    background: -webkit-linear-gradient(top, rgba(9, 174, 240, 1), rgba(86, 206, 255, 1)); /* Safari 5.1 - 6 */
+    background: -o-linear-gradient(top, rgba(9, 174, 240, 1), rgba(86, 206, 255, 1)); /* Opera 11.1 - 12*/
+    background: -moz-linear-gradient(top, rgba(9, 174, 240, 1), rgba(86, 206, 255, 1)); /* Firefox 3.6 - 15*/
+    background: linear-gradient(to bottom, rgba(9, 174, 240, 1), rgba(86, 206, 255, 1));
+}
+
+.integral-num {
+    position: relative;
+    width: 150rpx;
+    height: 150rpx;
+    margin: auto;
+}
+
+.integral-num image {
+    position: relative;
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.integral-num view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    line-height: 100rpx;
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.per-or {
+    position: relative;
+    top: -100rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 3%;
+    padding: 3%;
+    text-align: center;
+    box-shadow: 2px 2px 10px 2px #f4f4f4;
+    border-radius: 5px;
+}
+
+.per-or view {
+    padding-bottom: 10rpx;
+}
+
+.per-or view image {
+    width: 52rpx;
+    height: 56rpx;
+}
+
+.integral-main, .integral-main-o, .integral-main-o>view:first-child {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.integral-main>view:first-child {
+    width: 70%;
+}
+
+.integral-main>view:last-child {
+    width: 30%;
+}
+
+.integral-main-o>view:first-child {
+    width: 50%;
+}
+
+.integral-main-o>view:last-child {
+    width: 50%;
+}
+
+.integral-main-o image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 100%;
+}
+
+.integral-main .next, .integral-main-o .next {
+    width: 14rpx !important;
+    height: 25rpx !important;
+    margin-left: 20rpx;
+}
+
+.integral-main,.integral-main-o {
+    padding: 3%;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.integral-main-o>view:first-child text {
+    width: 72%;
+    text-align: left;
+}

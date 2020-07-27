@@ -1,0 +1,132 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+    <!--顶部-->
+    <view class="head">
+        <image src="{{logo}}"></image>
+        <!--搜索-->
+        <view class="search whitebg" bindtap="search">
+            <image src="../../images/search.png"></image>
+            <input type="text" placeholder="请输入关键词" disabled="true"></input>
+        </view>
+        <view class="tip"  bindtap="tipBtn">
+            <image src="../../images/icon34.png"></image>
+            <text class="redbg white" wx:if="{{count>0}}">{{count}}</text>
+        </view>
+    </view>
+    <!--banner-->
+    <swiper class="banner" indicator-dots="true" autoplay="true" interval="5000" duration="1000" indicator-color="#FFFFFF" indicator-active-color="#0da4fc">
+        <block wx:for="{{carouselList}}" wx:key='index'>
+            <swiper-item bindtap='chomeCarouselClick' data-item='{{item}}'>
+                <image src="{{item.img}}" class="slide-image" />
+            </swiper-item>
+        </block>
+    </swiper>
+    <!--今日新品-->
+
+    <view class="promotion_list">
+        <!-- autoplay设置是否自动切换，默认false -->
+        <swiper indicator-dots="true" indicator-color="white" class="swiper-box">
+            <!-- swiper中只可以放`<swiper-item/>组件 -->
+            <block wx:for="{{promotion_list}}" wx:key="key">
+                <swiper-item>
+                    <view class='item bc-green' bindtap = "promotion" data-id="{{item.id}}" >
+                        <view class="promotion_text blue ft30">
+                            {{item.name}}
+                        </view>
+                        <view class="promotion_back" style="background-color:#fff">
+                            <view class='icon1'>
+                                <block wx:for="{{item.product_list}}" wx:key="key1">
+                                    <navigator hover-class="none" url="/pages/list/index?title=生日&id=5b8e37e34b640a63b33272dc">
+                                        <image src='{{item.p_img}}' mode="aspectFit"></image>
+                                        <text>￥{{item.p_oldprice}}</text>
+                                    </navigator>
+                                </block>
+                            </view>
+                        </view>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+    <!--栏目-->
+    <view class="coloumn">
+        <block wx:for="{{cateList}}" wx:key="key">
+            <view>
+                <navigator url hover-class="none">
+                    <image src="{{item.img}}" data-value="{{item.id}}" bindtap="cate"></image>
+                    <view class="mt20">{{item.name}}</view>
+                </navigator>
+
+            </view>
+        </block>
+        <!-- <view>
+            <navigator url="../search/result" hover-class="none">
+                <image src="../../images/icon13.png"></image>
+                <view class="mt20">甜品茶饮</view>
+            </navigator>
+        </view>
+        <view>
+            <navigator url="../search/result" hover-class="none">
+                <image src="../../images/icon14.png"></image>
+                <view class="mt20">果蔬生鲜</view>
+            </navigator>
+        </view>
+        <view>
+            <navigator url="../search/result" hover-class="none">
+                <image src="../../images/icon15.png"></image>
+                <view class="mt20">精选零食</view>
+            </navigator>
+        </view> -->
+    </view>
+    <!--专区-->
+    <view class="zone">
+        <block wx:for="{{recommend_category}}" wx:key="key">
+            <view>
+                <navigator url hover-class="none"  data-value="{{item.id}}" bindtap="cate">
+                    <image src="{{item.img}}" ></image>
+                    <view class="white ft30">{{item.name}}</view>
+                </navigator>
+            </view>
+        </block>
+
+        <!-- <view>
+            <navigator url="../search/result" hover-class="none">
+                <image src="../../images/deta03.png"></image>
+                <view class="white ft30">蔬菜专区</view>
+            </navigator>
+        </view>
+        <view>
+            <navigator url="../search/result" hover-class="none">
+                <image src="../../images/deta04.png"></image>
+                <view class="white ft30">蔬菜专区</view>
+            </navigator>
+        </view>
+        <view>
+            <navigator url="../search/result" hover-class="none">
+                <image src="../../images/deta05.png"></image>
+                <view class="white ft30">蔬菜专区</view>
+            </navigator>
+        </view> -->
+    </view>
+    <!--热卖专区-->
+    <view class="hot">
+        <view class="hot-title ft34 bold">热卖专区</view>
+        <block wx:for="{{product_list}}" wx:key="key">
+            <view class="hot-main whitebg"  bindtap="details" data-id="{{item.id}}">
+                <image src="{{item.p_img}}"></image>
+                <view>
+                    <view class="ft30 twop">{{item.p_name}}</view>
+                    <view class="red mt10">
+                        <text class="ft20">￥</text>
+                        <text class="ft32">{{item.p_oldprice}}</text>
+                    </view>
+                    <view class="gary ft26 mt10">
+                        <text>已售{{item.p_sales}}件</text>
+                        <image src="../../images/icon16.png" catchtap="shop" data-p_id="{{item.id}}"></image>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <buy selectBox="{{selectBox}}"  product_detail='{{product_detail}}' sku_data="{{product_detail.sku_data}}" goods_spec="{{goods_spec}}" skuid_list="{{skuid_list}}" ladder_data="{{ladder_data}}" stock="{{stock}}" sku_name="{{sku_name}}" sku_names="{{sku_names}}" num="{{num}}" sku_id="{{sku_id}}" price="{{sku_price}}" price1="{{sku_price}}"></buy>
+</view>

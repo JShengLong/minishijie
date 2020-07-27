@@ -1,0 +1,68 @@
+/* pages/myorder/myorder.wxss */
+
+.title {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    color: #656565;
+}
+
+.title>view {
+    height: 70rpx;
+    line-height: 70rpx;
+}
+
+.border {
+    border-bottom: 2px solid #537df7;
+}
+
+.order-mian {
+    margin: 3%;
+    padding: 5% 3%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #e0e5e9;
+}
+
+.order-mian-flex {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.order-mian-flex image {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 5px;
+}
+
+.order-mian-flex>view {
+    width: 70%;
+}
+
+.order-title {
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.order-mian-flex-button {
+    justify-content: flex-end;
+}
+
+.order-mian-flex-button text {
+    display: inline-block;
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border-radius: 30px;
+    margin-right: 20rpx;
+    border: 1px solid #CBCBCB;
+}
+
+.order-mian-flex-button text:last-child {
+    color: #0da4fc;
+    border: 1px solid #0da4fc;
+}

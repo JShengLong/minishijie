@@ -1,0 +1,278 @@
+<!--pages/details/details.wxml-->
+
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="container">
+	<!--banner-->
+	<swiper class="banner" indicator-dots="true" interval="5000" bindchange="bindchange" duration="1000" indicator-color="#FFFFFF" indicator-active-color="#0da4fc">
+		<swiper-item wx:if="{{product_detail.p_video!=''}}">
+			<video id="myVideo" 
+			src="{{product_detail.p_video}}" 
+			enable-progress-gesture="{{enable_progress_gesture}}" 
+			enable-danmu  
+			controls 
+			wx:if="{{product_detail.p_video!=''}}"
+			show-mute-btn="{{show_mute_btn}}"
+			show-play-btn="{{show_play_btn}}"
+			show-center-play-btn
+			muted="{{muted}}"
+			enable-play-gesture="{{enable_play_gesture}}"
+			>
+			</video>
+		</swiper-item>
+		<block wx:for="{{imgUrls}}" wx:key='index'>
+			<swiper-item>
+				<image src="{{item}}" class="slide-image" />
+			</swiper-item>
+		</block>
+	</swiper>
+	<!--商品-->
+	<view class="deta-name ft34 whitebg">{{product_detail.p_name}}</view>
+	<view class="deta-share right whitebg" bindtap="share">
+		<image src="../../images/share.png"></image>
+		<text class="ft26 gary">分享</text>
+	</view>
+	<view class="deta-price whitebg">
+		<view wx:for="{{ladder_data}}" wx:key>
+			<view class="blue">
+				<text class="ft24">￥</text>
+				<text class="ft42">{{item.price}}</text>
+			</view>
+			<view class="gary ft24">≥
+				<text>{{item.num}}</text>件
+			</view>
+		</view>
+	</view>
+	<view class="deta-kc gary whitebg right">已售：
+		<text>{{product_detail.p_sales}}</text>
+	</view>
+	<!--规格-->
+    <view class="specifications mt20 whitebg">
+	<block wx:for="{{goods_spec}}" wx:for-index="fuindex" wx:key>
+		
+			<view class="ft30">{{item[0].attr_name}}</view>
+			<view class="specificBox mt20">
+				<block wx:for="{{item}}" wx:for-index="chindex" wx:for-item="items" wx:key>
+					<view class='{{items.is_click==0?"active":""}}' catchtap='selectGuige' data-fuindex="{{fuindex}}" data-chindex="{{chindex}}" data-id="{{items.symbol}}" data-item="{{items.attr_value}}">{{items.attr_value}}</view>
+				</block>
+
+			</view>
+		
+	</block>
+    <view class="parameterBtn ft30" bindtap="parameter">
+			<text>参数</text>
+			<image src="../../images/next.png"></image>
+		</view>
+    </view>
+	<!--商品评价-->
+	<view class="evaluation whitebg mt20">
+		<view class="ft30">商品评价({{product_detail.comment_num}})</view>
+        <block wx:if="{{product_detail.comment_list == null}}">
+            <view class="evaluationList mt30  pingjia">
+            暂无商品评价
+            </view>
+        </block>
+        <block  wx:if="{{product_detail.comment_list != null}}">
+        <view class="evaluationList mt30">
+			<image src="{{product_detail.comment_list.m_thumb}}"></image>
+			<view>
+				<view class="evalu-main">
+					<text class="ft30">{{product_detail.comment_list.m_nickname}}</text>
+					<view>
+                        <block wx:for="{{product_detail.comment_list.star_arr1}}" wx:key>
+                            <image src="../../images/icon21.png"></image>
+                        </block>
+                        <block wx:for="{{product_detail.comment_list.star_arr2}}" wx:key>
+                            <image src="../../images/icon20.png"></image>
+                        </block>
+						
+						<!-- <image src="../../images/icon21.png"></image>
+						<image src="../../images/icon21.png"></image>
+						<image src="../../images/icon21.png"></image>
+						<image src="../../images/icon20.png"></image> -->
+					</view>
+				</view>
+				<view class="mt20">{{product_detail.comment_list.comment}}</view>
+			</view>
+		</view>
+        
+        </block>
+		<navigator url="../evaluation/evaluation?id={{product_detail.id}}" hover-class="none" wx:if="{{product_detail.comment_list != null}}" >
+			<view class="evaluAll blue center">查看全部评价({{product_detail.comment_num}})</view>
+		</navigator>
+	</view>
+	<!--推荐商品-->
+	<view class="in-goods">
+		<view class="in-goods-title blue ft34">
+			<image src="../../images/icon23.png"></image>
+			<text>为您推荐</text>
+		</view>
+		<view class="in-goods-list mt20">
+			<block wx:for="{{tuijian_list}}" wx:key="index">
+				<view class="in-goods-main whitebg" bindtap="details" data-p_id="{{item.id}}">
+					<image src="{{item.p_img}}"></image>
+					<view class="twop">{{item.p_name}}</view>
+					<view class="in-goods-main-shop">
+						<view>
+							<text class="blue bold"> <text class="ft20">￥</text>
+							<text>{{item.p_oldprice}}</text> </text>
+							<text class="gary ft20 ml10">已售<text>{{item.p_sales}}</text>件</text>
+						</view>
+						<image src="../../images/icon22.png" catchtap="shop" data-p_id="{{item.id}}"></image>
+					</view>
+				</view>
+			</block>
+		</view>
+	</view>
+	<view class="baby whitebg">
+		<view class="ft34 blue bold center">宝贝详情</view>
+		<!-- <image src="../../images/deta09.png"></image> -->
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+	</view>
+	<view class="height"></view>
+	<view class="footer whitebg">
+		<button type="button" open-type="contact">
+			<image src="../../images/icon24.png"></image>
+			<view>客服</view>
+		</button>
+		<button type="button"  bindtap="collect">
+			<!-- <image src="{{iStart? '../../images/icon25.png':'../../images/icon250.png'}}"></image> -->
+			<image src="{{c_img}}"></image>
+			<view>+常用</view>
+		</button>
+		<button type="button" class="bluebg white" bindtap="addshop">加入购物车</button>
+        <button type="button" class="pinkbg white" bindtap="addshop">立即购买</button>
+		<!-- <button type="button" class="pinkbg white" bindtap="buy">立即购买</button> -->
+	</view>
+	<!--加入购物车-->
+	<buy selectBox="{{selectBox}}"  product_detail='{{product_detail}}' sku_data="{{product_detail.sku_data}}" goods_spec="{{goods_spec}}" skuid_list="{{skuid_list}}" ladder_data="{{ladder_data}}" stock="{{stock}}" sku_name="{{sku_name}}" sku_names="{{sku_names}}" num="{{num}}" sku_id="{{sku_id}}"  price1="{{sku_price}}" price="{{sku_price}}"></buy>
+	<!--加入购物车-->
+	<buy selectBox="{{selectBox1}}"  product_detail='{{product_detail1}}' sku_data="{{product_detail1.sku_data}}" goods_spec="{{goods_spec1}}" skuid_list="{{skuid_list1}}" ladder_data="{{ladder_data1}}" stock="{{stock1}}" sku_name="{{sku_name1}}" sku_names="{{sku_names1}}" num="{{num1}}" sku_id="{{sku_id1}}"  price1="{{sku_price1}}" price="{{sku_price1}}"></buy>
+	<!--产品参数-->
+	<view class="windows" hidden="{{parameter}}">
+		<scroll-view class="parameter whitebg" scroll-y="true">
+			<view class="center">
+				<text class="ft34">产品参数</text>
+				<image src="../../images/close.png" bindtap="close2" class="imagess"></image>
+			</view>
+			<view class="paramlist">
+				<view  wx:if="{{product_detail.p_brand!=''}}">
+					<label>品牌</label>
+					<text>{{product_detail.p_brand}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_leibie!=''}}">
+					<label>产品类别</label>
+					<text>{{product_detail.p_leibie}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_isjinkou!=''}}">
+					<label>是否进口</label>
+					<text>{{product_detail.p_isjinkou}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_yuanchan!=''}}">
+					<label>原产地</label>
+					<text>{{product_detail.p_yuanchan}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_codes!=''}}">
+					<label>商品条形码</label>
+					<text>{{product_detail.p_codes}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_shelf_life!=''}}">
+					<label>保质期</label>
+					<text>{{product_detail.p_shelf_life}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_name_of_factory!=''}}">
+					<label>生产厂家</label>
+					<text>{{product_detail.p_name_of_factory}}</text>
+				</view>
+				<view>
+					<label>储存条件</label>
+					<text wx:if="{{product_detail.p_storage_mode ==1}}">常温</text>
+                    <text wx:if="{{product_detail.p_storage_mode ==2}}">冷藏</text>
+                    <text wx:if="{{product_detail.p_storage_mode ==3}}">冷冻</text>
+				</view>
+				<view  wx:if="{{product_detail.p_garde!=''}}">
+					<label>等级</label>
+					<text>{{product_detail.p_garde}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_baozhuang!=''}}">
+					<label>规格</label>
+					<text>{{product_detail.p_baozhuang}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_shengchan!=''}}">
+					<label>生产日期</label>
+					<text>{{product_detail.p_shengchan}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_shoumai!=''}}">
+					<label>售卖方式</label>
+					<text>{{product_detail.p_shoumai}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_techan!=''}}">
+					<label>特产</label>
+					<text>{{product_detail.p_techan}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_ingredient_list!=''}}">
+					<label>原料和配料</label>
+					<text>{{product_detail.p_ingredient_list}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_weight!=''}}">
+					<label>净重（规格）</label>
+					<text>{{product_detail.p_weight}}kg</text>
+				</view>
+				<view  wx:if="{{product_detail.p_production_license!=''}}">
+					<label>生产许可证编号</label>
+					<text>{{product_detail.p_production_license}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_huohao!=''}}">
+					<label>货号</label>
+					<text>{{product_detail.p_huohao}}</text>
+				</view>
+				<view  wx:if="{{product_detail.p_baozhuang!=''}}">
+					<label>包装规格</label>
+					<text>{{product_detail.p_baozhuang}}</text>
+				</view>
+			</view>
+		</scroll-view>
+	</view>
+	<!--分享-->
+	<view class="windows" hidden="{{shareImg}}" data-target='self' bindtap='close1' catchtouchmove>
+		<view class="shareimg">
+			<image src="{{img_code}}"></image>
+			<button type="button" class="bluebg white" catchtap ="saveimg">保存图片</button>
+		</view>
+	</view>
+	<!--分享方式-->
+	<view class="windows" style="background-color: rgba(0, 0, 0, 0);" hidden="{{shareBoxBtn}}" data-target='self' catchtap='close' catchtouchmove>
+		<view class="shareBoxBtn whitebg">
+			<view class="shareBoxBtn-main">
+				<button open-type="share">
+					<image src="../../images/icon26.png"></image>
+					<view>微信好友</view>
+				</button>
+				
+				<!-- <view>
+					<image src="../../images/icon27.png"></image>
+					<view>手机QQ</view>
+				</view>
+				<view>
+					<image src="../../images/icon28.png"></image>
+					<view>新浪微博</view>
+				</view> -->
+				<button bindtap = "wechatBtn">
+					<image src="../../images/icon29.png"></image>
+					<view>小程序码</view>
+				</button>
+				<!-- <view>
+					<image src="../../images/icon30.png"></image>
+					<view>复制链接</view>
+				</view> -->
+			</view>
+			<!-- <view class="shareTip">
+				<text>微信分享时自动保存图片</text>
+				<text>取消</text>
+			</view> -->
+		</view>
+	</view>
+	<!--进去购物车页面-->
+    <view class="goshop" bindtap="goshop">
+        <image src="../../images/shop.png"></image>
+    </view>
+</view>

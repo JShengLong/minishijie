@@ -1,0 +1,79 @@
+<!--pages/search/result.wxml-->
+<view class="container">
+    <!--顶部-->
+    <view class="head">
+        <!--搜索-->
+        <view class="search garybg whitebg" bindtap="search">
+            <image src="../../images/search.png"></image>
+            <input type="text" placeholder="请输入关键词" value="{{search_data}}" bindinput="int" bindconfirm="btn"></input>
+        </view>
+        <text bindtap="btn">搜索</text>
+    </view>
+    <view class="select whitebg mt100">
+        <!-- <view class='{{currentData == 0 ? "blue" : ""}}' data-current="0" bindtap='changeTab'>综合</view>
+        <view class='{{currentData == 1 ? "blue" : ""}}' data-current="1" bindtap='changeTab'>
+            <text>价格</text>
+            <view>
+                <view><image src="../../images/icon18.png"></image></view>
+                <view><image src="../../images/icon19.png"></image></view>
+            </view>
+        </view>
+        <view class='{{currentData == 2 ? "blue" : ""}}' data-current="2" bindtap='changeTab'>
+            <text>销量</text>
+            <view>
+                <view><image src="../../images/icon18.png"></image></view>
+                <view><image src="../../images/icon19.png"></image></view>
+            </view>
+        </view> -->
+        <block wx:for="{{tab}}" wx:key="unique">
+            <view class='{{item.selected  ? "blue" : ""}}' bindtap='changeTab2' data-index="{{index}}">
+                <text>{{item.name}}</text>
+                <block wx:if="{{item.name != '综合'}}">
+                    <view wx:if="{{item.selected}}">
+                        <view wx:if="{{item.type =='desc'}}">
+                            <image src="../../images/icon36.png"></image>
+                        </view>
+                        <view wx:else>
+                            <image src="../../images/icon18.png"></image>
+                        </view>
+
+                        <view wx:if="{{item.type =='asc'}}">
+                            <image src="../../images/icon37.png"></image>
+                        </view>
+                        <view wx:else>
+                            <image src="../../images/icon19.png"></image>
+                        </view>
+                    </view>
+                    <view wx:else>
+                        <view>
+                            <image src="../../images/icon18.png"></image>
+                        </view>
+                        <view>
+                            <image src="../../images/icon19.png"></image>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </block>
+    </view>
+    <!--列表-->
+    <view class="hot">
+        <block wx:for="{{product_list}}" wx:key="index">
+            <view class="hot-main whitebg" data-value="{{item.id}}" bindtap="details">
+                <image src="{{item.p_img}}"></image>
+                <view>
+                    <view class="ft30 twop">{{item.p_name}}</view>
+                    <view class="red mt10">
+                        <text class="ft20">￥</text>
+                        <text class="ft32">{{item.p_oldprice}}</text>
+                    </view>
+                    <view class="gary ft26 mt10">
+                        <text>已售{{item.p_sales}}件</text>
+                        <image src="../../images/icon16.png" catchtap="shop" data-p_id="{{item.id}}"></image>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <buy selectBox="{{selectBox}}"  product_detail='{{product_detail}}' sku_data="{{product_detail.sku_data}}" goods_spec="{{goods_spec}}" skuid_list="{{skuid_list}}" ladder_data="{{ladder_data}}" stock="{{stock}}" sku_name="{{sku_name}}" sku_names="{{sku_names}}" num="{{num}}" sku_id="{{sku_id}}" price="{{sku_price}}" price1="{{sku_price}}"></buy>
+</view>

@@ -1,0 +1,18 @@
+<!--pages/topups/details.wxml-->
+<view class="container">
+	<block wx:for="{{list}}" wx:key="index">
+		<view class="deta" bindtap="detaBtn" data-id="{{item.id}}">
+			<view>
+				<text class="ft30">充值</text>
+				<text class="ft26 gary" wx:if="{{item.status==1}}">审核中</text>
+				<text class="ft26 gary" wx:if="{{item.status==2}}">审核通过</text>
+				<text class="ft26 gary" wx:if="{{item.status==3}}">审核驳回</text>
+			</view>
+			<view class="mt20">
+				<text>{{item.createTime}}</text>
+				<text class="blue" wx:if="{{item.status==2}}">+￥{{item.total}}</text>
+			</view>
+			<view class="mt20 ft26 blue" wx:if="{{item.status==3}}">原因：{{item.info}}</view>
+		</view>
+	</block>
+</view>

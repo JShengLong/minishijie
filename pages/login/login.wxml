@@ -1,0 +1,8 @@
+<view class=''>
+	<image src="../../images/pay02.png" class="logo"></image>
+	<view class="submit">
+    <view class="">微信</view>
+    <view class="gary mt100">温馨提示：将微信信息提供给集采小程序</view>
+		<button bindtap="btn" type="button" class="bluebg white" open-type="getUserInfo" bindgetuserinfo="btn">微信一键登陆</button>
+	</view>
+</view>

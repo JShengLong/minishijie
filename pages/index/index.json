@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "amount": "/components/amount/amount",
+    "buy": "/components/buy/buy"
+  },
+  "navigationBarBackgroundColor": "#F8F7F6"
+ 
+}

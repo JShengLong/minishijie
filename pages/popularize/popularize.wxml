@@ -1,0 +1,92 @@
+<!--pages/popularize/popularize.wxml-->
+<view class="container">
+    <view class="per-top white">
+        <image src="../../images/bg02.png"></image>
+        <view>
+            <image src="{{thumb}}"></image>
+            <view>
+                <view class="mt20">
+                    <text>邀请码：<text selectable='true' bindlongtap='copy'>{{code}}</text></text>
+                    <button class="ft24 white" bindtap='copyBtn'>复制邀请码</button>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="perBox whitebg">
+        <view class="per-or blue">
+            <view>
+                <view>客户总数</view>
+                <view class="ft48 bold mt20">{{num}}</view>
+            </view>
+            <view>
+                <view>积分总数</view>
+                <view class="ft48 bold mt20">{{num1}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="popul">
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+                {{array[index]}}
+                <image src="../../images/icon19.png"></image>
+            </view>
+        </picker>
+        <view>
+            <picker mode="date" value="{{date}}" start="2019-10-01" end="2030-12-31" bindchange="changeDate">
+                <view class="tui-picker-detail garybg">
+                    {{date}}
+                </view>
+            </picker>
+        </view>
+        <view>--</view>
+        <view>
+            <picker mode="date" value="{{date1}}" start="2019-10-01" end="2030-12-31" bindchange="changeDate1">
+                <view class="tui-picker-detail garybg">
+                    {{date1}}
+                </view>
+            </picker>
+        </view>
+        <text bindtap="btn" bindtap="search">搜索</text>
+    </view>
+    <view class="wallet-title whitebg">
+        <view class='{{currentData ==2? "focus" : ""}}' data-current="2" bindtap='changeTab'>已采购</view>
+        <view class='{{currentData == 1 ? "focus" : ""}}' data-current="1" bindtap='changeTab'>未采购</view>
+    </view>
+    <view class="wallet-box">
+        <view hidden="{{currentData != 2}}" wx:if="{{level==2}}">
+            <block wx:for="{{list}}" wx:key="index">
+                <view class="wallet-box-main whitebg" bindtap="details" data-id="{{item.id}}">
+                    <image src="{{item.m_thumb}}"></image>
+                    <view>
+                        <view class="ft30">{{item.m_nickname}}</view>
+                        <view class="gary mt10">{{item.m_account}}</view>
+                    </view>
+                    <image src="../../images/next.png" class="next"></image>
+                </view>
+            </block>
+        </view>
+         <view hidden="{{currentData != 2}}" wx:if="{{level==1}}">
+            <block wx:for="{{list}}" wx:key="index">
+                <view class="wallet-box-main whitebg">
+                    <image src="{{item.m_thumb}}"></image>
+                    <view>
+                        <view class="ft30">{{item.m_nickname}}</view>
+                        <view class="gary mt10">{{item.m_account}}</view>
+                    </view>
+                    <!-- <image src="../../images/next.png" class="next"></image> -->
+                </view>
+            </block>
+        </view>
+        <view hidden="{{currentData != 1}}">
+            <block wx:for="{{list}}" wx:key="index">
+                <view class="wallet-box-main whitebg">
+                    <image src="{{item.m_thumb}}"></image>
+                    <view>
+                        <view class="ft30">{{item.m_nickname}}</view>
+                        <view class="gary mt10">{{item.m_account}}</view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

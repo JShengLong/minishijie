@@ -1,0 +1,13 @@
+<!--pages/set/about.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
+<view class="container">
+    <view class="about">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        <!-- <view class="about-text">
+            食品商城简介，食品商城的简单介绍，食品商城的文章内容查看。食品商城APP简介，食品商城的简单介绍，食品商城的文章内容查看，食品商城APP简介，食品商城的简单介绍，食品商城的文章内容查看。
+        </view>
+        <view class="about-text">
+            食品商城简介，食品商城的简单介绍，食品商城的文章内容查看。食品商城APP简介，食品商城的简单介绍，食品商城的文章内容查看，食品商城APP简介，食品商城的简单介绍，食品商城的文章内容查看。
+        </view> -->
+    </view>
+</view>

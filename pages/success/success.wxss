@@ -1,0 +1,38 @@
+/* pages/coupon/success.wxss */
+
+page {
+    background: #fff;
+}
+
+.success {
+    margin: 30rpx;
+    padding: 50rpx 0;
+}
+
+.success-btn {
+    width: 70%;
+    margin: 40rpx auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between；
+}
+
+.success image {
+    width: 259rpx;
+    height: 201rpx;
+}
+
+.success-btn button {
+    width: 45% !important;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 0;
+}
+
+.success-btn button:nth-child(1) {
+    border: 1px solid #4ba3fd;
+}
+
+.success-btn button:nth-child(2) {
+    border: 1px solid #4ba3fd;
+}

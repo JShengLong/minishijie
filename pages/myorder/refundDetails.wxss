@@ -1,0 +1,73 @@
+/* pages/myorder/logisticsDetails.wxss */
+
+.logistic-title {
+    padding: 10% 3%;
+}
+
+.logistic-tip, .logistic-address {
+    padding: 3%;
+}
+
+.logistic-address>text {
+    display: block;
+    padding: 10rpx 0;
+}
+
+.logistic-address>view, .logistic-address>view>view {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logistic-address image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.logistic-address button {
+    padding: 0;
+    width: 150rpx !important;
+    background: none;
+    border: 0;
+}
+
+.logistic-address .blue {
+    padding: 10rpx 20rpx;
+    border-radius: 60px;
+    border: 1px solid #0da4fc;
+}
+
+.product {
+    padding: 3%;
+    border-radius: 5px;
+}
+
+.product {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.product>view {
+    width: 73%;
+}
+
+.product .mt50 {
+    align-items: center;
+}
+
+.product>image {
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 5px;
+}
+
+.order-data {
+    padding: 3%;
+    border-top: 1px solid #F4F4F4;
+}
+
+.order-data>view {
+    padding: 20rpx 0;
+}

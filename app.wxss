@@ -1,0 +1,306 @@
+/**app.wxss**/
+@import "./wxParse/wxParse.wxss";
+
+page {
+    background: #f8f7f6;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    color: #333;
+    font-size: 26rpx;
+}
+
+.windows {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.windows::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bor0 {
+    border: none !important;
+}
+
+.bgnone {
+    background: none;
+}
+
+.onep {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.twop {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.closebox {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+
+radio, checkbox {
+    transform: scale(0.7);
+}
+
+.pad0 {
+    padding: 0 !important;
+}
+
+.hr {
+    width: 100%;
+    height: 20rpx;
+    background: #f2f3f6;
+}
+
+.height {
+    height: 100rpx;
+}
+
+button::after {
+    border: 0;
+}
+
+button {
+    padding: 0 !important;
+    font-weight: bold !important;
+}
+
+switch {
+    zoom: 0.8;
+}
+
+/*内间距*/
+
+.pad {
+    padding: 0 30rpx;
+}
+
+/*外间距*/
+
+.mt0 {
+    margin: 0 !important;
+}
+
+.mt10 {
+    margin-top: 10rpx;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.mt30 {
+    margin-top: 30rpx;
+}
+
+.mt40 {
+    margin-top: 40rpx;
+}
+
+.mt50 {
+    margin-top: 50rpx;
+}
+
+.mt100 {
+    margin-top: 100rpx;
+}
+
+.ml10 {
+    margin-left: 10rpx;
+}
+
+.ml20 {
+    margin-left: 20rpx;
+}
+
+.ml50 {
+    margin-left: 50rpx;
+}
+
+.focus {
+    color: #0da4fc !important;
+    border-bottom: 2px solid #0da4fc !important;
+}
+
+/*字体颜色 背景颜色*/
+
+.white {
+    color: #fff;
+}
+
+.whitebg {
+    background: #fff;
+}
+
+.gary {
+    color: #989898;
+}
+
+.garyb {
+    color: #656565;
+}
+
+.garybg {
+    background: #f8f7f6;
+}
+
+.red {
+    color: #ff400f;
+}
+
+.pink {
+    color: #ff426e;
+}
+
+.pinkbg {
+    background: #ff426e;
+}
+
+.redbg {
+    background: #ff400f;
+}
+
+.blue {
+    color: #0da4fc;
+}
+
+.bluebg {
+    background: #0da4fc;
+}
+
+.orange {
+    color: #ff9c00;
+}
+
+.orangebg {
+    background: #ff9c00;
+}
+
+.height {
+    height: 100rpx;
+}
+
+/*字号*/
+
+.ft18 {
+    font-size: 18rpx;
+}
+
+.ft20 {
+    font-size: 20rpx;
+}
+
+.ft22 {
+    font-size: 22rpx;
+}
+
+.ft24 {
+    font-size: 24rpx;
+}
+
+.ft26 {
+    font-size: 26rpx;
+}
+
+.ft30 {
+    font-size: 30rpx;
+}
+
+.ft32 {
+    font-size: 32rpx;
+}
+
+.ft34 {
+    font-size: 34rpx;
+}
+
+.ft36 {
+    font-size: 36rpx;
+}
+
+.ft42 {
+    font-size: 42rpx;
+}
+
+.ft48 {
+    font-size: 48rpx;
+}
+
+.ft52 {
+    font-size: 52rpx;
+}
+
+.ft56 {
+    font-size: 56rpx;
+}
+
+.ft60 {
+    font-size: 60rpx;
+}
+
+.ft100 {
+    font-size: 100rpx;
+}
+
+/*底部*/
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 3%;
+    width: 94%;
+    height: 100rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    border-top: 1px solid #f5f5f5;
+}
+.wxParse-p>image {
+    width: 100% !important;
+}
+    

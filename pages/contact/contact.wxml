@@ -1,0 +1,9 @@
+<!--pages/contact/contact.wxml-->
+<view class="container">
+    <view class="contact whitebg center">
+        <image src="../../images/contact.png"></image>
+        <view class="ft34 mt20">人工客服：{{contact}}</view>
+        <view class="gary mt20">客服时间：{{customer}}</view>
+        <button type="button" open-type="contact" class="bluebg white mt30">在线客服</button>
+    </view>
+</view>

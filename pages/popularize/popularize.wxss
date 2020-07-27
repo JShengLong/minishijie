@@ -1,0 +1,87 @@
+/* pages/popularize/popularize.wxss */
+@import '../personal/personal';
+
+page {
+    background: #fff;
+}
+
+.per-top>view image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+    border: 0;
+}
+
+.per-top>view>view {
+    width: 80%;
+}
+
+.perBox {
+    box-shadow: 2px 2px 10px 2px #f4f4f4;
+}
+
+.per-or {
+    justify-content: space-around;
+}
+
+.wallet-title {
+    height: 80rpx;
+    line-height: 80rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.wallet-box-main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 3%;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.wallet-box-main>view {
+    width: 80%;
+}
+
+.wallet-box image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
+}
+
+.wallet-box .next {
+    width: 14rpx !important;
+    height: 25rpx !important;
+}
+
+.wallet-box, .wallet-title, .perBox, .popul {
+    position: relative;
+    top: -150rpx;
+}
+
+.popul {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.picker {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tui-picker-detail {
+    padding: 5rpx 10rpx;
+}
+
+.picker image {
+    width: 16rpx;
+    height: 8rpx;
+    margin-left: 8rpx;
+}

@@ -1,0 +1,21 @@
+<!--pages/topups/bil.wxml-->
+<view class="containe">
+    <view class="bill whitebg center">
+        <view class="ft48"><text wx:if="{{isplus=='1'}}">+</text><text wx:if="{{isplus=='-1'}}">-</text>{{total}}</view>
+        <view class="mt20">交易成功</view>
+    </view>
+    <view class="set whitebg ft30">
+        <view>
+            <label>商品说明</label>
+            <text class="right gary">{{info}}</text>
+        </view>
+        <view>
+            <label>操作时间</label>
+            <text class="right gary">{{time}}</text>
+        </view>
+        <view>
+            <label>交易号</label>
+            <text class="right gary">{{id}}</text>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,15 @@
+/* pages/set/set.wxss */
+
+.set view {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.set view image {
+    width: 14rpx;
+    height: 25rpx;
+}

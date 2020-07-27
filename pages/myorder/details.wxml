@@ -1,0 +1,152 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+    <!--待付款-->
+    <view class="active white">
+        <view>
+            <view class="ft32" wx:if="{{details.o_status==1}}">待付款</view>
+            <view class="ft32" wx:if="{{details.o_status==2}}">待发货</view>
+            <view class="ft32" wx:if="{{details.o_status==3 && details.o_distribution_mode!=2}}">待收货</view>
+            <view class="ft32" wx:if="{{details.o_status==3 && details.o_distribution_mode==2}}">待取货</view>
+            <view class="ft32" wx:if="{{details.o_status==4}}">待评价</view>
+            <view class="ft32" wx:if="{{details.o_status==5}}">已完成</view>
+            <view class="ft32" wx:if="{{details.o_status==6}}">已取消</view>
+            <view class="ft32" wx:if="{{details.o_status==7}}">交易关闭</view>
+            <view class="ft24"  wx:if="{{details.o_status==1}}">还剩{{details.o_unpaid_time}}自动关闭</view>
+        </view>
+        <image src="../../images/active.png" ></image>
+    </view>
+    <!--地址-->
+    <navigator url hover-class="none" wx:if="{{details.o_distribution_mode==2}}">
+        <view class="address whitebg">
+            <view class="ft30">
+                <text>联系人：{{storageRoom.name}}</text>
+                <text>{{storageRoom.phone}}</text>
+            </view>
+            <view class="mt20">
+                <view class="gary">联系地址{{storageRoom.address}}</view>
+            </view>
+        </view>
+    </navigator>
+     <navigator url hover-class="none" wx:if="{{details.o_distribution_mode!=2}}">
+        <view class="address whitebg">
+            <view class="ft30">
+                <text>联系人：{{details.o_name}}</text>
+                <text>{{details.o_phone}}</text>
+            </view>
+            <view class="mt20">
+                <view class="gary">联系地址：{{details.name_path}}{{details.o_address}}</view>
+            </view>
+        </view>
+    </navigator>
+    <!--订单-->
+    <view class="order whitebg">
+        <block wx:for="{{details.order_detail}}" wx:key>
+            <view class="data mt20">
+                <image src="{{item.d_img}}"></image>
+                <view>
+                    <view class="onep ft30">{{item.d_name}}</view>
+                    <view class="ft26 gary mt10">{{item.d_sku}}</view>
+                    <view class="data-price mt10">
+                        <text class="blue"><text class="ft22">￥</text>{{item.d_price}}</text>
+                        <text>x{{item.d_num}}</text>
+                        <text class="blue" bindtap="refund" wx:if="{{(details.o_status==2||details.o_status==4)&&(item.d_refund==1||item.d_refund==4)}}" style="font-size:12px;padding:5px 8px;border-radius:30px;border: 1px solid #0da4fc;" data-id="{{item.d_id}}">申请退款</text>
+
+                        <text class="blue" wx:if="{{(details.o_status==2||details.o_status==4)&&item.d_refund==2}}" style="font-size:12px;padding:5px 8px;border-radius:30px;border: 1px solid #0da4fc;" data-id="{{item.r_id}}" bindtap="ing">退款中</text>
+
+                        <text class="blue" wx:if="{{(details.o_status==2||details.o_status==4)&&item.d_refund==3}}" style="font-size:12px;padding:5px 8px;border-radius:30px;border: 1px solid #0da4fc;" data-id="{{item.d_id}}">退款成功</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="data-list mt30">
+            <view class="data-list-m gary">
+                <view>商品总价</view>
+                <text>+¥{{details.o_ptotal}}</text>
+            </view>
+            <view class="data-list-m gary">
+                <view>运费（快递）</view>
+                <text>+¥{{details.o_freight}}</text>
+            </view>
+            <view class="data-list-m gary">
+                <view>积分抵扣</view>
+                <text>-¥{{details.o_integral}}</text>
+            </view>
+            <view class="data-list-m gary" wx:if="{{details.o_discount_type!=''}}">
+                <view>优惠方式</view>
+                <text wx:if="{{details.o_discount_type==1}}">商品价格</text>
+                <text wx:if="{{details.o_discount_type==2}}">运费价格</text>
+            </view>
+            <view class="data-list-m gary" wx:if="{{details.o_discount_type!=''}}">
+                <view>优惠价格</view>
+                <text>-¥{{details.o_discount}}</text>
+            </view>
+            
+            <view class="data-list-m">
+                <view>订单总价</view>
+                <text class="blue"><text class="ft22">￥</text>{{details.o_actual_payment}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="data-time whitebg">
+        <view>
+            <label>订单编号：</label>
+            <text selectable='true' bindlongtap='copy'>{{code}}</text>
+            <button class="ft24 blue" bindtap='copyBtn'>复制</button>
+        </view>
+        <view>
+            <label>创建时间：</label>
+            <text>{{details.o_createtime}}</text>
+        </view>
+        <view wx:if="{{details.o_paytime!=''}}">
+            <label>付款时间：</label>
+            <text>{{details.o_paytime}}</text>
+        </view>
+        <view wx:if="{{details.o_sendtime!=''}}">
+            <label>发货时间：</label>
+            <text>{{details.o_sendtime}}</text>
+        </view>
+        <view wx:if="{{details.o_endtime!=''}}">
+            <label>收货时间：</label>
+            <text>{{details.o_endtime}}</text>
+        </view>
+        <view>
+            <label>配送方式：</label>
+            <text wx:if="{{details.o_distribution_mode==1}}">平台配送</text>
+            <text wx:if="{{details.o_distribution_mode==2}}">站点自提</text>
+            <text wx:if="{{details.o_distribution_mode==3}}">快递发货</text>
+            <text wx:if="{{details.o_distribution_mode==4}}">物流配送</text>
+        </view>
+        <view>
+            <label>备注信息：</label>
+            <text>{{details.o_remark}}</text>
+        </view>
+    </view>
+    <!--待发货-->
+    <view class="order-mian-flex order-mian-flex-button whitebg">
+        <button type="button" open-type="contact" >联系客服</button>
+        <text bindtap="delete" wx:if="{{details.o_status==5}}">删除订单</text>
+        <text bindtap="cancel" wx:if="{{details.o_status==1}}">取消订单</text>
+        <text bindtap="pay"   wx:if="{{details.o_status==1}}">立即付款</text>
+        <text bindtap="looks"  wx:if="{{details.o_status!=1}}">再次购买</text>
+        <text bindtap="looklogic" wx:if="{{details.o_status==3}}">查看物流</text>
+        <text bindtap="sure" data-info="确认收货" wx:if="{{details.o_status==3 && details.o_distribution_mode!=2}}">确认收货</text>
+		<text bindtap="sure" data-info="确认取货" wx:if="{{details.o_status==3 && details.o_distribution_mode==2}}">确认取货</text>
+        <text bindtap="write" wx:if="{{details.o_status==4}}">去评价</text>
+    </view>
+</view>
+<view wx:if='{{showPayPwdInput}}'>
+    <view class='bg_layer'></view>
+    <view class='input_main'>
+        <view class='input_title'>
+            <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+            <text>输入支付密码</text>
+        </view>
+        <view class='input_tip'></view>
+        <view class='input_row' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                <text wx:if='{{payment_password.length>i}}'></text>
+            </view>
+        </view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+    </view>
+</view>

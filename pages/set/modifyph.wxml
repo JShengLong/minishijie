@@ -1,0 +1,19 @@
+<!--pages/set/modifyph.wxml-->
+<view class="container">
+    <view class="set mt20 whitebg">
+        <view>
+            <label>手机号</label>
+            <input type="text" placeholder="请输入手机号" bindinput="update_ph"></input>
+        </view>
+        <view>
+            <label>验证码</label>
+            <input type="text" placeholder="请输入验证码" style="width:55%;" bindinput="update_code"></input>
+            <button disabled='{{disabled}}' data-id="2" class="whitebg ft22" bindtap="getVerificationCode">
+                {{time}}
+            </button>
+        </view>
+    </view>
+    <view class="submit">
+        <button type="button" class="bluebg white" bindtap="sendSms">确认</button>
+    </view>
+</view>

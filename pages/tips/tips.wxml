@@ -1,0 +1,27 @@
+<!--pages/tips/tips.wxml-->
+<view class="container">
+	<view class="tip-title1 ft36 whitebg">
+	<navigator url="../tips/tips1" hover-class="none">
+	    <view>
+		    <image src="../../images/icon39.png"></image>
+			<text>系统消息</text>
+		</view>
+		</navigator>
+		<navigator url="../tips/tips2" hover-class="none">
+		<view>
+		    <image src="../../images/icon38.png"></image>
+			<text>推送消息</text>
+		</view>
+		</navigator>
+	</view>
+	<block wx:for="{{list}}">
+	<view class="tips whitebg" bindtap="detail" data-id="{{item.item_id}}" data-type="{{item.type}}">
+		<view class="tip-title">
+			<image src="../../images/tips.png"></image>
+			<view>{{item.title}}</view>
+		</view>
+		<view class="mt20">{{item.message}}</view>
+	</view>
+	</block>
+	
+</view>

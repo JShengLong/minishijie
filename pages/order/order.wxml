@@ -1,0 +1,168 @@
+<!--pages/order/order.wxml-->
+<view class="container">
+	<!--选择地址-->
+	<block wx:if="{{peisong_id==2}}">
+		<view class="order-top whitebg">
+			<view>
+				<view wx:if="{{address!=null}}">
+					<view class="ft32">
+						<text>{{datas.storage_room.name}}</text>
+						<text class="ml20">{{datas.storage_room.phone}}</text>
+					</view>
+					<view class="ft24 mt20">自提地址：{{datas.storage_room.address}}</view>
+				</view>
+				<view wx:if="{{address==null}}">
+					<view>
+						<text></text>
+						<text></text>
+					</view>
+					<view class="ft24 mt20">请添加默收货地址</view>
+				</view>
+			</view>
+			<image src="../../images/hr.png"></image>
+		</view>
+	</block>
+	<block wx:if="{{peisong_id!=2&&address!=null}}">
+		<navigator url="../address/address" hover-class="none">
+			<view class="order-top whitebg">
+				<view>
+					<view wx:if="{{address!=null}}">
+						<view class="ft32">
+							<text>{{address.name}}</text>
+							<text class="ml20">{{address.phone}}</text>
+						</view>
+						<view class="ft24 mt20">收货地址：{{address.name_path}}{{address.address}}</view>
+					</view>
+					<view wx:if="{{address==null}}">
+						<view>
+							<text></text>
+							<text></text>
+						</view>
+						<view class="ft24 mt20">请添加默认收货地址</view>
+					</view>
+					<image src="../../images/next01.png"></image>
+				</view>
+				<image src="../../images/hr.png"></image>
+			</view>
+		</navigator>
+	</block>
+	<block wx:if="{{address==null}}">
+		<navigator url="../address/address" hover-class="none">
+			<view class="order-top whitebg">
+				<view>
+					<view>
+						<view>
+							<text></text>
+							<text></text>
+						</view>
+						<view class="ft24 mt20">请添加默认收货地址</view>
+					</view>
+					<image src="../../images/next01.png"></image>
+				</view>
+				<image src="../../images/hr.png"></image>
+			</view>
+		</navigator>
+	</block>
+	<!--取货方式-->
+	<view class="take whitebg">
+		<view class="bold ft30">取货方式</view>
+		<radio-group>
+			<block wx:for="{{peisong_type}}" wx:key wx:for-index="a">
+				<view>
+					<label>{{item.type}}</label>
+					<radio color="#0DA4FC" checked="{{ischeck[item.is_check]}}" bindtap="select1" data-itemid="{{item.id}}"></radio>
+				</view>
+			</block>
+		</radio-group>
+	</view>
+	<!--商品-->
+	<view class="hot">
+		<block wx:for="{{product}}" wx:key="index">
+			<view class="hot-main whitebg" bindtap="details">
+				<image src="{{item.p_img}}"></image>
+				<view>
+					<view class="ft30 twop">{{item.p_name}}</view>
+					<view class="red mt10">
+						<text class="ft20">￥</text>
+						<text class="ft32">{{item.p_price_ladder}}</text>
+					</view>
+					<view class="gary ft26 mt10">
+						<text>规格：{{item.sku}}</text>
+						<text>数量：{{item.p_num}}</text>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+	<!--订单信息-->
+	<view class="order-deta ft30 whitebg">
+		<view class="order-deta-mian">
+			<label>订单备注</label>
+			<input type="text" placeholder="选填" bindinput="remark"></input>
+		</view>
+
+		<view class="order-deta-mian" hidden="{{freight}}">
+			<label>运费金额</label>
+			<text class="gary">￥{{freight_total}}</text>
+		</view>
+        <view class="order-deta-mian" hidden="{{freight1}}">
+			<label>运费金额</label>
+			<text class="gary">运费金额到付</text>
+		</view>
+		<view class="order-deta-mian" hidden="{{freight_info}}">
+			<label>运费说明</label>
+			<text class="gary" style="width:63%">再买￥{{freight_ex}}免运费</text>
+			<view class="blue" bindtap="gohome" style="font-size:10px">去凑单
+				<image src="../../images/next02.png"></image>
+			</view>
+		</view>
+		<view class="order-deta-mian">
+			<label>使用积分</label>
+			<text class="gary" style="width:63%" class="red">{{s_integral}}积分抵{{q_total}}元</text>
+			<switch color="#0DA4FC"  bindchange="swith" checked="{{chec}}" data-check="{{check}}"></switch>
+		</view>
+		<view class="order-deta-mian"  hidden="{{qiwang_time}}">
+			<label style="width:30%">期望收货时间</label>
+			<picker mode="time" value="{{time}}" start="{{now_time}}" end="23:59" bindchange="bindTimeChange">
+				<view class="picker ft30" style="margion-left:130rpx">
+					{{time}}
+				</view>
+			</picker>
+			<text style="width:20%" class="center">-</text>
+			<picker mode="time" value="{{time1}}" start="{{now_time1}}" end="23:59" bindchange="bindTimeChange1">
+				<view class="picker ft30">
+					{{time1}}
+					<image src="../../images/next03.png"></image>
+				</view>
+			</picker>
+		</view>
+		<view class="right">
+			<text>商品金额 </text>
+			<text class="ft20 red">￥</text>
+			<text class="ft34 red bold">{{h_total}}</text>
+		</view>
+	</view>
+	<!--订单信息物流配送/自提-->
+	<!-- <view class="order-deta ft30 whitebg" hidden="{{logistics}}">
+		<view class="order-deta-mian">
+			<label>订单备注</label>
+			<input type="text" placeholder="选填"></input>
+		</view>
+		<view class="order-deta-mian">
+			<label>使用积分</label>
+			<text class="gary" style="width:63%">{{s_integral}}积分抵{{q_total}}元</text>
+			<switch color="#0DA4FC" bindchange="swith" checked="{{chec}}"></switch>
+		</view>
+		<view class="right">
+			<text>商品金额 </text>
+			<text class="ft20 red">￥</text>
+			<text class="ft34 red bold">{{h_total}}</text>
+		</view>
+	</view> -->
+	<view class="total ft30 whitebg">
+		<text>合计：<text class="bold red">￥{{s_total}}</text></text>
+		<navigator url hover-class="none">
+			<button type="button" class="bluebg white ft30" bindtap="btn">提交订单</button>
+		</navigator>
+	</view>
+</view>

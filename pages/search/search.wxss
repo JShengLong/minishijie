@@ -1,0 +1,40 @@
+/* pages/search/search.wxss */
+@import '../index/index';
+
+page {
+    background: #fff;
+}
+
+.head {
+    background: #fff;
+}
+.head text{
+    font-size: 32rpx;
+}
+.search {
+    width: 88%;
+}
+
+.history .title {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history .title image {
+    width: 24rpx;
+    height: 26rpx;
+}
+
+.his-main {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.his-main text {
+    padding: 10rpx 15rpx;
+    margin: 15rpx;
+    border-radius: 60px;
+}

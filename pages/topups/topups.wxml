@@ -1,0 +1,64 @@
+<!--pages/topups/topups.wxml-->
+<view class="container">
+    <view class="topups">
+        <view class="tip blue">余额充值请用银行卡转账或扫描下方银行收款码支付并提交转账成功截图</view>
+        <view class="topups-kind whitebg">
+            <text  style="font-weight: bold !important;">银行卡充值方式</text>
+            <view>
+                <view class="mt20">银行卡卡号：{{detail.bankid}}</view>
+                <view class="mt20">
+                  开户行： {{detail.bankkname}}</view>
+                    <view  class="mt20">收款人：{{detail.bankname}}</view>
+         
+            </view>
+        </view>
+        <view class="topups-kind whitebg">
+            <text style="font-weight: bold !important;">扫描二维码充值</text>
+            <view class="center">
+                <image src="{{detail.shoukuancode}}" class="mt20" bindtap="preview"></image>
+            </view>
+        </view>
+        <view class="topups-kind whitebg">
+            <text  style="font-weight: bold !important;">上传转账截图</text>
+            <view class="addImv">
+                <!--这个是已经选好的图片-->
+                <block wx:for="{{imgArr}}" wx:key="key">
+                    <view class="upFile" bindtap="showImage" data-id="{{index}}">
+                        <image class="itemImv" src="{{item}}"></image>
+                        <image class="closeImv" src="../../images/delete.png" mode="scaleToFill" catchtap="deleteImv" data-id="{{index}}"></image>
+                    </view>
+                </block>
+                <!--这个是选择图片-->
+                <view class="chooseView" bindtap="chooseImage" wx:if="{{chooseViewShow}}">
+                    <image class="chooseImv" src="../../images/add.png"></image>
+                </view>
+            </view>
+        </view>
+        <navigator url hover-class="none">
+            <view class="submit">
+                <button type="button" class="bluebg white" bindtap="save">确认</button>
+            </view>
+        </navigator>
+         <navigator url="../topups/details" hover-class="none">
+          <view class="submit">
+                <button type="button" class="blue" style="margin: 31rpx auto;">充值明细</button>
+            </view>
+        </navigator>
+    </view>
+</view>
+<!-- <view wx:if='{{showPayPwdInput}}'>
+    <view class='bg_layer'></view>
+    <view class='input_main'>
+        <view class='input_title'>
+            <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+            <text>输入支付密码</text>
+        </view>
+        <view class='input_tip'></view>
+        <view class='input_row' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                <text wx:if='{{payment_password.length>i}}'></text>
+            </view>
+        </view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+    </view>
+</view> -->

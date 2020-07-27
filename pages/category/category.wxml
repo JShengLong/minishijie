@@ -1,0 +1,52 @@
+<!--pages/category/category.wxml-->
+<view class='container'>
+	<view class="head">
+		<!--搜索-->
+		<view class="search garybg" bindtap="search">
+			<image src="../../images/search.png"></image>
+			<input type="text" placeholder="请输入关键词"  disabled="true"></input>
+		</view>
+		<view class="tip" bindtap="tipBtn">
+			<image src="../../images/icon34.png"></image>
+			<text class="redbg white" wx:if="{{count>0}}">{{count}}</text>
+		</view>
+	</view>
+	<view class='category'>
+		<scroll-view scroll-y class='Left garybg'>
+			<block wx:for="{{category_data}}" wx:key wx:for-index="aa">
+				<view class='left-child {{currentData == aa ? "focus" : ""}}' data-current="{{aa}}" bindtap='changeTab'  data-id="{{item.id}}">{{item.name}}</view>
+			</block>
+		</scroll-view>
+		<scroll-view scroll-y class='Rigth'>
+			<scroll-view class="kindBox" scroll-x>
+				<view class="kind">
+					<view>
+                    <text class="{{cateindex==='a'?'active':''}}" bindtap='cate' data-index='' data-current='a'>全部分类</text>
+						<block wx:for="{{category}}" wx:key wx:for-index="bb">
+							<text class="{{cateindex==bb?'active':''}}" bindtap='cate'  data-id="{{item.id}}" data-current='{{bb}}'>{{item.name}}</text>
+						</block>
+					</view>
+				</view>
+			</scroll-view>
+			<view >
+				<block wx:for="{{product_list}}" wx:key="index">
+					<view class='list-main' bindtap='godetails' data-p_id="{{item.id}}">
+						<image src='{{item.p_img}}'></image>
+						<view>
+							<view class='twop ft26'>{{item.p_name}}</view>
+							<view class='list-buy mt30'>
+								<view class='orange bold'>
+									<text class='ft30 pink'>￥{{item.p_oldprice}}</text>
+									<!-- <text class='gary'>/箱</text> -->
+								</view>
+								<image src='../../images/icon16.png' catchtap='addcart' data-p_id="{{item.id}}"></image>
+							</view>
+						</view>
+					</view>
+				</block>
+			</view>
+			
+		</scroll-view>
+	</view>
+	<buy selectBox="{{selectBox}}"  product_detail='{{product_detail}}' sku_data="{{product_detail.sku_data}}" goods_spec="{{goods_spec}}" skuid_list="{{skuid_list}}" ladder_data="{{ladder_data}}" stock="{{stock}}" sku_name="{{sku_name}}" sku_names="{{sku_names}}" num="{{num}}" sku_id="{{sku_id}}" price="{{sku_price}}"  price1="{{sku_price}}"></buy>
+</view>

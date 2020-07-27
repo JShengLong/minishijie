@@ -1,0 +1,48 @@
+<!--pages/myorder/writelogistics.wxml-->
+<view class="container">
+    <!--商品信息-->
+    <view class="product whitebg mt20">
+        <image src="{{detail.d_img}}"></image>
+        <view>
+            <view>{{detail.d_name}}</view>
+            <view class="mt10 gary ft24">
+                <text>规格：{{detail.d_sku}}</text>
+                <text class="ml50">数量：{{detail.d_num}}</text> </view>
+            <view class="mt20 bold ft32">￥{{detail.d_price}}</view>
+        </view>
+    </view>
+    <!--订单信息-->
+    
+    <view class="order-data whitebg">
+        <view>
+            <label>联系电话：</label>
+            <input placeholder="请填写联系电话" type="number"  bindinput="update_phone"></input>
+        </view>
+    </view>
+    <!--订单信息-->
+    <view class="order-data whitebg mt20"wx:for="{{express}}" wx:for-index="a">
+       <view class="order-data-view">
+            <label>物流公司：</label>
+             <picker bindchange="bindPickerChange" value="{{express[a]}}" data-index="{{a}}" range="{{array}}" range-key="{{'name'}}">
+                <view class="picker" style="margin-left: 15rpx;">
+                {{array[express[a]].name}}
+                </view>
+            </picker>
+        </view>
+        <view>
+            <label>物流单号:</label>
+            <input placeholder="请填写物流单号" bindinput="sn" data-index="{{a}}"></input>
+        </view>
+        <view class="delete">
+            <image src="../../images/icon41.png" bindtap = "delete" data-index="{{a}}"></image>
+            <text class="gary" bindtap = "delete" data-index="{{a}}">删除</text>
+        </view>
+    </view>
+    <view class="add whitebg mt20" bindtap = "add">
+        <image src="../../images/icon40.png"></image>
+        <text class="ft26">添加新物流</text>
+    </view>
+    <view class="submit">
+        <button type="button" class="bluebg white" bindtap="btn">确认</button>
+    </view>
+</view>

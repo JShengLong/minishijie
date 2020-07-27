@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "amount": "/components/amount/amount",
+        "buy": "/components/buy/buy"
+    },
+    "navigationBarTitleText": "商品详情"
+}

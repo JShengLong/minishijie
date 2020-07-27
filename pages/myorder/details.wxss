@@ -1,0 +1,246 @@
+/* pages/order/order.wxss */
+
+page {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.address, .order {
+    margin: -8% 3% 12%;
+    padding: 5%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #e0e5e9;
+}
+.address>view, .data, .data-price, .data-list-m, .data-time>view {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.address>view image {
+    width: 18rpx;
+    height: 30rpx;
+}
+
+.address .gary {
+    width: 85%;
+}
+
+.data image {
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 6px;
+}
+
+.data>view {
+    width: 73%;
+}
+
+.data-list image {
+    width: 12rpx;
+    height: 22rpx;
+}
+
+.data-list-m {
+    align-items: center;
+    padding: 10rpx 0;
+}
+
+.data-list-m picker, .data-list-m text {
+    display: inline-block;
+    width: 70%;
+    text-align: right;
+}
+
+.data-list input {
+    width: 80%;
+    text-align: right;
+}
+
+.active {
+    padding: 10% 5% 15%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background: -webkit-linear-gradient(left, rgba(42, 201, 226, 1), rgba(59, 244, 266, 1)); /* Safari 5.1 - 6 */
+    background: -o-linear-gradient(right, rgba(42, 201, 226, 1), rgba(59, 244, 266, 1)); /* Opera 11.1 - 12*/
+    background: -moz-linear-gradient(right, rgba(42, 201, 226, 1), rgba(59, 244, 266, 1)); /* Firefox 3.6 - 15*/
+    background: linear-gradient(to right, rgba(42, 201, 226, 1), rgba(59, 244, 266, 1));
+}
+
+.active image {
+    width: 76rpx;
+    height: 76rpx;
+}
+
+.data-time {
+    margin: -8% 3% 12%;
+    padding: 0 5%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #e0e5e9;
+}
+
+.data-time>view {
+    padding: 30rpx 0 20rpx;
+    justify-content: flex-start;
+}
+
+.data-time>view label {
+    width: 25%;
+}
+
+.data-time>view>view {
+    width: 75%;
+}
+
+.data-time button {
+    padding: 0;
+    width: 60rpx !important;
+    background: none;
+}
+
+.order-mian-flex {
+    padding: 5% 0 10% !important;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.order-mian-flex-button {
+    justify-content: flex-end;
+}
+
+.order-mian-flex-button text {
+    display: inline-block;
+    width: 160rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border-radius: 30px;
+    margin-right: 20rpx;
+    color: #0da4fc;
+    border: 1px solid #0da4fc;
+}
+.order-mian-flex-button button{
+    width: 160rpx !important;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    border-radius: 30px;
+    color: #0da4fc;
+    border: 1px solid #0da4fc;
+    font-size: 28rpx;
+    background: none;
+    margin: 0 !important;
+    margin-right: 20rpx !important;
+
+}
+/* 支付密码css start */
+.bg_layer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(145, 133, 133, 0.6);
+    z-index: 9998;
+}
+
+.input_main {
+    position: fixed;
+    left: 0;
+    bottom: 500rpx;
+    width: 100%;
+    height: 338rpx;
+    background-color: #fff;
+    z-index: 9999;
+}
+
+.input_title {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 32rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.input_back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80rpx;
+    height: 90rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_back text {
+    width: 20rpx;
+    height: 20rpx;
+    background-color: white;
+    border: 1rpx solid #aaa;
+    border-width: 5rpx 0 0 5rpx;
+    transform: rotate(-45deg);
+}
+
+.input_tip {
+    margin: 30rpx;
+    font-size: 24rpx;
+    color: #888;
+}
+
+/* 密码掩码模拟 */
+.input_row {
+    width: 690rpx;
+    margin: 0 auto;
+    height: 98rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1rpx solid #e2e2e2;
+    border-radius: 20rpx;
+}
+
+.input_row .pwd_item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-right: 1rpx solid #e2e2e2;
+    position: relative;
+}
+
+.pwd_item:nth-last-of-type(1) {
+    border-right: 0;
+}
+
+.pwd_item text {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 30rpx;
+    background-color: #555;
+}
+
+
+.forget_pwd {
+    float: right;
+    margin: 30rpx;
+    width: 100rpx;
+    text-align: right;
+    font-size: 24rpx;
+    color: #ff7800;
+}
+
+/* 文本输入框位置: 设置到左边隐藏 */
+.input_control {
+    position: relative;
+    left: -300rpx;
+    bottom: 0;
+    width: 100rpx;
+    height: 100rpx;
+}

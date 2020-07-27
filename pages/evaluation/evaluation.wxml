@@ -1,0 +1,35 @@
+<!--pages/evaluation/evaluation.wxml-->
+<view class="container">
+    <block wx:for="{{list}}" wx:key wx:for-index="findex">
+        <view class="evaluationList mt30">
+            <image src="{{item.m_thumb}}"></image>
+            <view>
+                <view class="evalu-main">
+                    <text class="ft30">{{item.m_nickname}}</text>
+                    <view>
+                        <block wx:for="{{item.star}}">
+                        <image src="../../images/icon21.png"></image>
+                        </block>
+                        <block wx:for="{{item.stars}}">
+                        <image src="../../images/icon20.png"></image>
+                        </block>
+                    </view>
+                </view>
+                <view class="mt20">{{item.comment}}</view>
+                <view class="evaluation-img mt20">
+                    <block wx:for="{{item.img}}" wx:for-item="image" wx:key>
+                        <image src='{{image}}' data-src="{{image}}" bindtap="preview" data-index="{{findex}}"></image>
+                    </block>
+                </view>
+                <view class="evalu-main ft20 gary mt20">
+                    <view>数量：
+                        <text>{{item.num}}</text>规格：
+                        <text>{{item.sku}}</text>
+                    </view>
+                    <text>{{item.createtime}}</text>
+                </view>
+            </view>
+        </view>
+        
+    </block>
+</view>

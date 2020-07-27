@@ -1,0 +1,35 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+    <!--顶部-->
+    <view class="head">
+        <!--搜索-->
+        <view class="search garybg whitebg">
+            <image src="../../images/search.png"></image>
+            <input type="text" placeholder="请输入关键词" bindinput="ins" bindconfirm="btn"       focus="true"></input>
+        </view>
+        <text bindtap="btn">搜索</text>
+    </view>
+    <!--热门推荐-->
+    <view class="history mt100">
+        <view class="title" bindtap="clear">
+            <text class="ft30 bold">热门推荐</text>
+        </view>
+        <view class="his-main" hidden="{{history}}">
+            <block wx:for="{{tuijian_data}}" wx:key="index">
+                <text class="garybg ft22" data-value="{{item}}" bindtap="remen">{{item}}</text>
+            </block>
+        </view>
+    </view>
+    <!--历史搜索-->
+    <view class="history">
+        <view class="title">
+            <text class="ft30 bold">历史记录</text>
+            <image src="../../images/delete1.png" bindtap="clear" wx:if="{{count>0}}"></image>
+        </view>
+        <view class="his-main" hidden="{{history}}">
+            <block wx:for="{{search_data}}" wx:key="index">
+                <text class="garybg ft22" data-value="{{item.content}}" bindtap="remen">{{item.content}}</text>
+            </block>
+        </view>
+    </view>
+</view>

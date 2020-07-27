@@ -1,0 +1,44 @@
+/* pages/tips/tips.wxss */
+.tips {
+    margin: 3% 3% 1%;
+    padding: 3%;
+    border-radius: 5px;
+  }
+  
+  .tip-title {
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #F4F4F4;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+  }
+  
+  .tip-title>view {
+    width: 90%;
+  }
+  
+  .tips image {
+    width: 38rpx;
+    height: 38rpx;
+  }
+  .tip-title1 {
+    padding: 3%;
+    margin: 3% 3% 0 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border-radius: 5px;
+  }
+  
+  .tip-title1 view {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .tip-title1 image {
+    width: 56rpx;
+    height: 56rpx;
+    margin-right: 10rpx;
+  }

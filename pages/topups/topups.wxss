@@ -1,0 +1,185 @@
+/* pages/topups/topups.wxss */
+
+/*选择图片View*/
+
+.addImv {
+    margin-top: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/*添加图片*/
+
+.addImv .chooseView {
+    width: 200rpx;
+    height: 200rpx;
+    text-align: center;
+    padding: 7rpx;
+}
+
+.addImv .chooseImv {
+    width: 200rpx !important;
+    height: 200rpx !important;
+    padding: 7rpx;
+}
+
+/*已选择的图片*/
+
+.addImv .upFile {
+    width: 200rpx;
+    height: 200rpx;
+    position: relative;
+    padding: 7rpx;
+}
+
+.addImv .upFile .itemImv {
+    width: 200rpx;
+    height: 200rpx;
+    padding: 7rpx;
+}
+
+.addImv .upFile .closeImv {
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.tip {
+    padding: 3%;
+    background: #daf4fe;
+    margin-bottom: 10rpx;
+}
+
+.topups-kind {
+    margin: 20rpx 3%;
+    padding: 3%;
+}
+
+.topups-kind>text {
+    padding: 3% 0;
+    display: block;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.topups-kind image {
+    width: 230rpx;
+    height: 230rpx;
+}
+
+.submit button {
+    width: 90% !important;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 80rpx auto;
+    border-radius: 60px;
+}
+/* 支付密码css start */
+.bg_layer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(145, 133, 133, 0.6);
+    z-index: 9998;
+}
+
+.input_main {
+    position: fixed;
+    left: 0;
+    bottom: 500rpx;
+    width: 100%;
+    height: 338rpx;
+    background-color: #fff;
+    z-index: 9999;
+}
+
+.input_title {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 32rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.input_back {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80rpx;
+    height: 90rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input_back text {
+    width: 20rpx;
+    height: 20rpx;
+    background-color: white;
+    border: 1rpx solid #aaa;
+    border-width: 5rpx 0 0 5rpx;
+    transform: rotate(-45deg);
+}
+
+.input_tip {
+    margin: 30rpx;
+    font-size: 24rpx;
+    color: #888;
+}
+
+/* 密码掩码模拟 */
+.input_row {
+    width: 690rpx;
+    margin: 0 auto;
+    height: 98rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1rpx solid #e2e2e2;
+    border-radius: 20rpx;
+}
+
+.input_row .pwd_item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    border-right: 1rpx solid #e2e2e2;
+    position: relative;
+}
+
+.pwd_item:nth-last-of-type(1) {
+    border-right: 0;
+}
+
+.pwd_item text {
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 30rpx;
+    background-color: #555;
+}
+
+
+.forget_pwd {
+    float: right;
+    margin: 30rpx;
+    width: 100rpx;
+    text-align: right;
+    font-size: 24rpx;
+    color: #ff7800;
+}
+
+/* 文本输入框位置: 设置到左边隐藏 */
+.input_control {
+    position: relative;
+    left: -300rpx;
+    bottom: 0;
+    width: 100rpx;
+    height: 100rpx;
+}

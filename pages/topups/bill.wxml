@@ -1,0 +1,27 @@
+<!--pages/topups/bil.wxml-->
+<view class="containe">
+    <view class="bill whitebg center blue">
+        <view class="ft48"><text wx:if="{{datas.b_isplus=='1'}}">+</text><text wx:if="{{datas.b_isplus=='-1'}}">-</text>{{datas.b_total}}</view>
+        <view class="mt20" wx:if="{{datas.b_type==1}}">充值成功</view>
+        <view class="mt20" wx:if="{{datas.b_type==2}}">消费成功</view>
+        <view class="mt20" wx:if="{{datas.b_type==3}}">退款成功</view>
+    </view>
+    <view class="set whitebg ft30">
+        <view>
+            <label>方式</label>
+            <text class="right gary">{{datas.b_info}}</text>
+        </view>
+        <view>
+            <label>操作时间</label>
+            <text class="right gary">{{datas.b_createTime}}</text>
+        </view>
+        <view>
+            <label>账单号</label>
+            <text class="right gary">{{datas.b_id}}</text>
+        </view>
+        <view wx:if="{{datas.b_type!=1}}">
+            <label>详情</label>
+            <text class="right gary" bindtap="info">查看详情</text>
+        </view>
+    </view>
+</view>

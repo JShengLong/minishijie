@@ -1,0 +1,35 @@
+<!--pages/pay/pay.wxml-->
+<view class="container">
+    <view class="red ft48 center">￥{{order_data.o_actual_payment}}</view>
+    <radio-group>
+        <view class="pay whitebg">
+            <view>
+                <image src="../../images/pay02.png"></image>
+                <text>微信支付</text>
+                <radio color="#0da4fc" checked="checked"  data-item="mini" bindtap="radio"></radio>
+            </view>
+            <view>
+                <image src="../../images/pay03.png"></image>
+                <text>钱包余额</text>
+                <radio color="#0da4fc" disabled="{{order_data.isdis}}" data-item="money" bindtap="radio"></radio>
+            </view>
+        </view>
+    </radio-group>
+    <button type="button" bindtap="payOrder" class="ft36 white bluebg">确认并支付￥{{order_data.o_actual_payment}}</button>
+</view>
+<view wx:if='{{showPayPwdInput}}'>
+    <view class='bg_layer'></view>
+    <view class='input_main'>
+        <view class='input_title'>
+            <view class='input_back' catchtap='hidePayLayer'><text></text></view>
+            <text>输入支付密码</text>
+        </view>
+        <view class='input_tip'></view>
+        <view class='input_row' catchtap='getFocus'>
+            <view class='pwd_item' wx:for='{{6}}' wx:key='item' wx:for-index='i'>
+                <text wx:if='{{payment_password.length>i}}'></text>
+            </view>
+        </view>
+        <input class='input_control' password type='number' focus='{{payFocus}}' bindinput='inputPwd' maxlength='6'/>
+    </view>
+</view>

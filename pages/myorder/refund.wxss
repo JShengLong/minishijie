@@ -1,0 +1,77 @@
+/* pages/set/set.wxss */
+@import '../myorder/logistics';
+
+.set view {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.set view image {
+    width: 14rpx;
+    height: 25rpx;
+}
+
+.set input, .set text, .set picker {
+    width: 80%;
+}
+
+/*选择图片View*/
+
+.addImv {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/*添加图片*/
+
+.addImv .chooseView {
+    width: 160rpx;
+    height: 160rpx;
+    background-color: #fff;
+    text-align: center;
+    line-height: 180rpx;
+    padding: 0rpx 7rpx;
+    margin-left: 10rpx;
+}
+
+.addImv .chooseImv {
+    width: 160rpx;
+    height: 160rpx;
+}
+
+/*已选择的图片*/
+
+.addImv .upFile {
+    width: 160rpx;
+    height: 160rpx;
+    position: relative;
+    padding: 0rpx 7rpx;
+    margin: 10rpx 0;
+}
+
+.addImv .upFile .itemImv {
+    width: 160rpx;
+    height: 160rpx;
+    padding: 0rpx 7rpx;
+}
+
+.addImv .upFile .closeImv {
+    position: absolute;
+    right: 0rpx;
+    top: 0rpx;
+    width: 33rpx;
+    height: 33rpx;
+}
+
+.submit button {
+    width: 90% !important;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 80rpx auto;
+    border-radius: 60px;
+}

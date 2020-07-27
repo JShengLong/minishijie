@@ -1,0 +1,334 @@
+/* pages/details/details.wxss */
+
+.banner, .banner image, .banner video  {
+    width: 100%;
+    height: 600rpx;
+}
+
+.deta-name, .deta-price, .deta-kc {
+    padding: 3%;
+}
+
+.deta-price {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 1px solid #ededed;
+}
+
+.deta-share {
+    width: 94%;
+    padding: 0 3%;
+}
+
+.deta-share image {
+    width: 26rpx;
+    height: 26rpx;
+    margin-right: 10rpx;
+}
+
+.specifications, .evaluation {
+    padding: 3%;
+}
+
+.specificBox {
+    display: flex;
+    flex-flow: row wrap;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #ededed;
+    font-size: 14px;
+}
+
+.specificBox view {
+    padding: 5rpx 10rpx;
+    background: #f1f1f1;
+    border-radius: 5px;
+    margin: 10rpx;
+}
+
+.active {
+    color: #FFFFFF !important;
+    background: #0da4fc !important;
+
+}
+
+.parameterBtn {
+    width: 94%;
+    padding: 3% 3% 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.parameterBtn image {
+    width: 17rpx;
+    height: 30rpx;
+}
+
+.evaluationList {
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #ededed;
+}
+
+.evaluationList, .evalu-main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.evaluationList>image {
+    width: 66rpx;
+    height: 66rpx;
+    border-radius: 100%;
+}
+
+.evaluationList>view {
+    width: 88%;
+}
+
+.evalu-main {
+    align-items: center;
+}
+
+.evalu-main image {
+    width: 24rpx;
+    height: 24rpx;
+    margin: 5rpx;
+}
+
+.evaluAll {
+    padding: 3% 3% 0;
+}
+
+.in-goods {
+    margin: 3% 3%;
+}
+
+.in-goods-list {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.in-goods-title {
+    position: relative;
+    width: 392rpx;
+    text-align: center;
+    margin: 30rpx auto;
+}
+
+.in-goods-title image {
+    width: 100%;
+    height: 18rpx;
+    margin: 30rpx auto;
+}
+
+.in-goods-title text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 70rpx;
+}
+
+.in-goods-list {
+    flex-flow: row wrap;
+}
+
+.in-goods-main {
+    width: 345rpx;
+    margin: 10rpx 0;
+    border-radius: 5px;
+}
+
+.in-goods-main>view {
+    width: 90%;
+    margin: 10rpx auto;
+}
+
+.in-goods-list image {
+    width: 100%;
+    height: 345rpx;
+    border-radius: 4px;
+}
+
+.in-goods-main>view image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.in-goods-main-shop {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.baby>view {
+    padding: 3%;
+}
+
+.baby image {
+    width: 100%;
+    height: 750rpx;
+}
+
+.footer {
+    width: 100%;
+    padding: 0;
+}
+
+.footer image {
+    width: 32rpx;
+    height: 31rpx;
+}
+
+.footer button {
+    border-radius: 0;
+    font-size: 30rpx !important;
+    font-weight: 100;
+    width: 30% !important;
+    height: 100rpx;
+    line-height: 100rpx;
+    padding: 0;
+    text-align: center;
+}
+
+.footer button:nth-child(1), .footer button:nth-child(2) {
+    line-height: 70rpx;
+    font-size: 28rpx !important;
+    width: 20% !important;
+}
+
+.footer view {
+    margin-top: -30rpx;
+}
+
+.parameter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    padding:30rpx 0;
+}
+
+.paramlist {
+    padding: 0 3%;
+    width: 94%;
+    height: 90%;
+    overflow: scroll;
+}
+
+.parameter>view {
+    padding: 3%;
+}
+
+.imagess {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    width: 37rpx;
+    height: 37rpx;
+}
+
+.paramlist>view {
+    width: 100%;
+    padding: 20rpx 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    border-bottom: 1px solid #ededed;
+}
+
+.paramlist>view label {
+    width: 30%;
+    color: #656565;
+}
+
+.paramlist>view text {
+    width: 70%;
+}
+
+.shareimg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    z-index: 99999;
+}
+
+.shareimg image {
+    width: 522rpx;
+    height: 716rpx;
+    margin-top: 10%;
+}
+
+.shareimg button {
+    height: 80rpx;
+    line-height: 80rpx;
+    border-radius: 30px;
+    margin-top: 30rpx;
+}
+
+.shareBoxBtn {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 3% 0;
+    z-index: 999;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.shareBoxBtn-main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 3% 0;
+    border-bottom: 1px solid #ededed; */
+}
+
+.shareTip {
+    padding: 3% 3% 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.shareBoxBtn-main button{
+    background: none;
+    font-weight: 400 !important;
+}
+.shareBoxBtn-main image {
+    width: 90rpx;
+    height: 90rpx;
+}
+
+.shareBoxBtn-main>view>view {
+    margin-top: 20rpx;
+}
+.pingjia{
+    text-align: center;
+}
+
+.goshop {
+    position: fixed;
+    bottom: 150rpx;
+    right: 20rpx;
+    width: 98rpx;
+    height: 98rpx;
+}
+
+.goshop image {
+    width: 100%;
+    height: 100%;
+}

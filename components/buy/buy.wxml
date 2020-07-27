@@ -1,0 +1,52 @@
+<!--components/buy/buy.wxml-->
+<!--选择规格-->
+<view class='windows' hidden='{{selectBox}}' data-target='self' catchtap='close' catchtouchmove>
+    <view class="buyBox whitebg">
+        <image src="../../images/close.png" data-target='self' catchtap='close'></image>
+        <view class="buy-top">
+            <image src="{{product_detail.p_img}}"></image>
+            <view>
+                <view class="price pink">
+                    <text>￥ <text class="ft46">{{price}}</text>  </text>
+                </view>
+                <view class="gary mt20">库存
+                    <text>{{stock}}</text>件</view>
+                <view class="mt20">{{sku_name}}</view>
+            </view>
+        </view>
+        <scroll-view scroll-y="true" style="height:50%">
+            <view class="deta-price whitebg">
+            <block wx:for="{{ladder_data}}" wx:key>
+                <view>
+                    <view class="blue">
+                        <text class="ft24">￥</text>
+                        <text class="ft42">{{item.price}}</text>
+                    </view>
+                    <view class="gary ft24">≥
+                        <text>{{item.num}}</text>件</view>
+                </view>
+                </block>
+            </view>
+            <!--规格-->
+            <block wx:for="{{goods_spec}}" wx:for-index="fuindex" wx:key>
+                <view class="specifications mt20 whitebg">
+                    <view class="ft30">{{item[0].attr_name}}</view>
+                        <view class="specificBox mt20">
+                        <block wx:for="{{item}}" wx:for-index="chindex" wx:for-item="items" wx:key>
+                        <view class='{{items.is_click==0?"active":""}}'  catchtap='selectGuige' data-fuindex="{{fuindex}}" data-chindex="{{chindex}}" data-id="{{items.symbol}}" data-item="{{items.attr_value}}" >{{items.attr_value}}</view>
+                        </block>
+                        </view>
+                </view>
+            </block>
+            <!--购买数量-->
+            <view class="number">
+                <text>购买数量</text>
+                <amount num='{{num}}' bind:myevent='getCount' count="{{count}}" id="amount"></amount>
+            </view>
+        </scroll-view>
+        <view class="buyBtn">
+            <button type="button" class="bluebg" bindtap="shop">加入购物车</button>
+            <button type="button" class="pinkbg" bindtap="buy">立即购买</button>
+        </view>
+    </view>
+</view>

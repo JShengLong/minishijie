@@ -1,0 +1,61 @@
+/* pages/address/modify.wxss */
+
+.modify {
+    margin: 3%;
+    padding: 5%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #e0e5e9;
+}
+
+.main {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30rpx 10rpx;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.main:last-child {
+    border: 0;
+}
+
+.main label {
+    width: 20%;
+}
+
+.main input, .main picker {
+    width: 78%;
+    color: #323232;
+}
+
+.main textarea {
+    width: 78%;
+    height: 100rpx;
+}
+
+.switch {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30rpx;
+    margin: 3%;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px #e0e5e9;
+}
+
+.switch switch {
+    zoom: 0.8;
+}
+
+.footer button {
+    width: 100% !important;
+    height: 90rpx;
+    line-height: 90rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}

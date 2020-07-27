@@ -1,0 +1,29 @@
+<!--pages/set/set.wxml-->
+<view class="container">
+    <view class="set mt20 whitebg">
+        <navigator url="../set/modifyph" hover-class="none">
+            <view>
+                <label>更换手机号</label>
+                <image src="../../images/next.png"></image>
+            </view>
+        </navigator>
+        <navigator url="../set/modifypw" hover-class="none">
+            <view>
+                <label>修改支付密码</label>
+                <image src="../../images/next.png"></image>
+            </view>
+        </navigator>
+        <navigator url="../set/feedback" hover-class="none">
+            <view>
+                <label>用户反馈</label>
+                <image src="../../images/next.png"></image>
+            </view>
+        </navigator>
+        <navigator url="../set/about" hover-class="none">
+            <view>
+                <label>关于我们</label>
+                <image src="../../images/next.png"></image>
+            </view>
+        </navigator>
+    </view>
+</view>

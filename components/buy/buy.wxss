@@ -1,0 +1,181 @@
+/* components/buy/buy.wxss */
+
+.windows {
+    position: fixed;
+    z-index: 9999999999999999999999999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 28rpx;
+}
+
+.windows::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.buyBox {
+    position: fixed;
+    z-index: 9999;
+    bottom: 0;
+    width: 100%;
+    height: 80%;
+}
+
+.buyBox>image {
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+    width: 37rpx;
+    height: 37rpx;
+}
+
+.buy-top {
+    padding: 3% 5%;
+    margin-top: 30rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buy-top>image {
+    width: 220rpx;
+    height: 220rpx;
+}
+
+.buy-top>view {
+    width: 62%;
+}
+
+.price {
+    width: 100%;
+    margin-top: 20rpx;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deta-price {
+    padding: 3% 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid #ededed;
+}
+
+.number {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ededed;
+}
+
+.specifications {
+    padding: 3%;
+}
+
+.specificBox {
+    display: flex;
+    flex-flow: row wrap;
+    padding-bottom: 20rpx;
+    font-size: 14px;
+}
+
+.specificBox view {
+    padding: 5rpx 10rpx;
+    background: #f1f1f1;
+    border-radius: 5px;
+    margin: 10rpx;
+}
+
+.buyBtn {
+    position: fixed;
+    bottom: 10rpx;
+    width: 94%;
+    padding: 0 3%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.buyBtn button {
+    width: 50%;
+    height: 90rpx;
+    line-height: 90rpx;
+    padding: 0;
+    font-size: 30rpx;
+    font-weight: 100;
+    color: #fff;
+}
+
+.buyBtn button:nth-child(1) {
+    border-top-left-radius: 60px;
+    border-bottom-left-radius: 60px;
+}
+
+.buyBtn button:nth-child(2) {
+    border-top-right-radius: 60px;
+    border-bottom-right-radius: 60px;
+}
+
+.active {
+    background: #0da4fc !important;
+    color: #fff !important;
+}
+
+.height {
+    height: 60%;
+    overflow: scroll;
+}
+
+.active {
+    color: #0aa9ed;
+    border: 1px solid #0aa9ed;
+}
+
+.pinkbg {
+    background: #ff426e;
+}
+
+.redbg {
+    background: #ff400f;
+}
+
+.blue {
+    color: #0da4fc;
+}
+
+.bluebg {
+    background: #0da4fc;
+}
+
+.mt10 {
+    margin-top: 10rpx;
+}
+
+.mt20 {
+    margin-top: 20rpx;
+}
+
+.whitebg {
+    background: #fff;
+}
+
+.ft46 {
+    font-size: 46rpx;
+}
+
+.ft24 {
+    font-size: 24rpx;
+}
+
+.ft42 {
+    font-size: 42rpx;
+}

@@ -1,0 +1,68 @@
+<view class="container">
+    <view class="integral-top">
+        <navigator url="../integral/rule">
+            <view class="white right ft24">积分规则</view>
+        </navigator>
+        <view class="integral-num white">
+            <image src="../../images/inte.png"></image>
+            <view class="ft36">{{member.m_integral}}</view>
+        </view>
+    </view>
+    <view class="per-or whitebg">
+        <view class='{{currentData == "1" ? "focus" : ""}}' data-current="1" bindtap='changeTab'>
+            <image src="../../images/icon32.png"></image>
+            <view class="mt10">积分收入</view>
+        </view>
+        <view class='{{currentData == "-1" ? "focus" : ""}}' data-current="-1" bindtap='changeTab'>
+            <image src="../../images/icon33.png"></image>
+            <view class="mt10">积分支出</view>
+        </view>
+    </view>
+    <view class="integral"  hidden="{{currentData != '1'}}">
+        <view class="integral-main" wx:for="{{list}}" wx:if="{{item.b_type==3||item.b_type==5}}"  bindtap="bill" data-id="{{item.b_id}}" data-total="{{item.b_total}}" data-info="{{item.b_info}}" data-time="{{item.b_createTime}}" data-isplus="{{item.b_isplus}}">
+            <view >
+                <view class="ft30 onep">{{item.b_info}}</view>
+                <view class="mt20 ft24 gary">{{item.b_createTime}}</view>
+            </view>
+            <view class="right">
+                <text class="orange ft36">+{{item.b_total}}</text>
+                <image src="../../images/next.png" class="next"></image>
+            </view>
+        </view>
+        <view class="integral-main-o"  wx:for="{{list}}"  wx:if="{{item.b_type==1}}"  bindtap="bill"  data-id="{{item.b_id}}" data-total="{{item.b_total}}" data-info="{{item.b_info}}" data-time="{{item.b_createTime}}" data-isplus="{{item.b_isplus}}">
+            <view class="onep">
+                <image src="{{item.m_thumb}}"></image>
+                <text>{{item.m_nickname}}</text>
+            </view>
+            <view class="right">
+                <view>
+                    <text class="blue ft36">+{{item.b_total}}</text>
+                    <image src="../../images/next.png" class="next"></image>
+                </view>
+                <view class="mt20 ft24 gary">{{item.b_createTime}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="integral"  hidden="{{currentData != '-1'}}">
+        <view class="integral-main"   wx:for="{{list}}" wx:if="{{item.b_type!=2}}" bindtap="bill"  data-id="{{item.b_id}}" data-total="{{item.b_total}}" data-info="{{item.b_info}}" data-time="{{item.b_createTime}}" data-isplus="{{item.b_isplus}}"> 
+            <view>
+                <view class="ft30 onep">{{item.b_info}}</view>
+                <view class="mt20 ft24 gary">{{item.b_createTime}}</view>
+            </view>
+            <view class="right">
+                <text class="orange ft36">-{{item.b_total}}</text>
+                <image src="../../images/next.png" class="next"></image>
+            </view>
+        </view>
+        <view class="integral-main" wx:for="{{list}}" wx:if="{{item.b_type==2}}" bindtap="look"  data-b_item_id="{{item.b_item_id}}"> 
+            <view>
+                <view class="ft30 onep">{{item.b_info}}</view>
+                <view class="mt20 ft24 gary">{{item.b_createTime}}</view>
+            </view>
+            <view class="right">
+                <text class="orange ft36">-{{item.b_total}}</text>
+                <image src="../../images/next.png" class="next"></image>
+            </view>
+        </view>
+    </view>
+</view>

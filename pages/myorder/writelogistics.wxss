@@ -1,0 +1,78 @@
+/* pages/myorder/writelogistics.wxss */
+
+.product {
+    padding: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.product>view {
+    width: 73%;
+}
+
+.product .mt50 {
+    align-items: center;
+}
+
+.product>image {
+    width: 170rpx;
+    height: 170rpx;
+    border-radius: 5px;
+}
+
+.order-data {
+    padding: 3%;
+    border-top: 1px solid #f4f4f4;
+}
+
+.order-data>view {
+    padding: 20rpx 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.order-data-view{
+    justify-content:flex-start !important;
+
+}
+.order-data label {
+    width: 20%：;
+}
+
+.order-data input {
+    width: 80%;
+    border: 0;
+}
+
+.submit button {
+    width: 90% !important;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 80rpx auto;
+    border-radius: 60px;
+}
+.delete{
+    padding: 20rpx 3% 10rpx !important;
+    justify-content: flex-end !important;
+    align-items: center;
+    border-top: 1px solid #EEEEEE;
+}
+.delete image{
+    width: 17px;
+    height: 17px;
+    margin-right: 5rpx;
+}
+.add{
+    padding: 30rpx 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    color: #77d2f6;
+}
+.add image{
+    width: 33rpx;
+    height: 33rpx;
+    margin-right: 10rpx;
+}

@@ -1,0 +1,28 @@
+<!--pages/myorder/myorder.wxml-->
+<view class="container">
+    <view class="order">
+        <block wx:for="{{list}}" wx:key='index'>
+            <view class="order-mian whitebg">
+            <block wx:for="{{item.order_detail}}" wx:for-item="items">
+                <view class="order-mian-flex mt20"> 
+                    <image src="{{items.d_img}}"></image>
+                    <view>
+                        <view class="twop mt10`">{{items.d_name}}</view>
+                        <view class="garyb mt10">{{items.d_sku}}</view>
+                        <view class="order-mian-flex mt10">
+                            <text class="blue">￥{{items.d_price}}</text>
+                            <text>x{{items.d_num}}</text>
+                        </view>
+                    </view>
+                </view>
+            
+            </block>
+                
+                <view class="blue right mt20">
+                    <text class="ft24">合计：￥</text>
+                    <text class="ft36">{{item.o_ptotal}}</text>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

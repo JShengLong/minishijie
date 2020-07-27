@@ -1,0 +1,41 @@
+<!--pages/wallet/wallet.wxml-->
+<view class="container">
+    <view class="wallet-top white">
+        <view>
+            <text>¥</text>
+            <text class="ft60">{{member.m_total}}</text>
+        </view>
+        <view class="mt20 ft32">我的余额</view>
+        <navigator url="../topups/topups" hover-class="none">
+            <button type="button" class="ft32 whitebg blue mt30">充值</button>
+        </navigator>
+    </view>
+    <view class="wallet-title whitebg">
+        <view class='{{currentData == "1" ? "focus" : ""}}' data-current="1" bindtap='changeTab'>收入明细</view>
+        <view class='{{currentData == "-1"? "focus" : ""}}' data-current="-1" bindtap='changeTab'>支出明细</view>
+    </view>
+    <view class="wallet-box mt20">
+        <view hidden="{{currentData != 1}}">
+            <block wx:for="{{list}}" wx:key="index">
+                <view class="wallet-box-main whitebg" bindtap="info" data-id="{{item.b_id}}">
+                    <view>
+                        <text class="ft30">{{item.b_info}}</text>
+                        <text class="blue">+￥{{item.b_total}}</text>
+                    </view>
+                    <text class="gary">{{item.b_createTime}}</text>
+                </view>
+            </block>
+        </view>
+        <view hidden="{{currentData != '-1'}}">
+            <block wx:for="{{list}}" wx:key="index">
+                <view class="wallet-box-main whitebg"  bindtap="info" data-id="{{item.b_id}}">
+                    <view>
+                        <text class="ft30">{{item.b_info}}</text>
+                        <text class="blue">-￥{{item.b_total}}</text>
+                    </view>
+                    <text class="gary">{{item.b_createTime}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,29 @@
+/* pages/evaluation/evaluation.wxss */
+@import '../details/details';
+
+page {
+    background: #fff;
+}
+
+.evaluationList {
+    padding: 3%;
+}
+
+.evaluation-img {
+    /* display: flex; */
+    flex-flow: row wrap;
+    justify-content: space-around;
+  
+}
+
+.evaluation-img image {
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 5px;
+    margin-left: 10rpx;
+}
+
+.evaluationList:last-child {
+    border-bottom: 0;
+}
+

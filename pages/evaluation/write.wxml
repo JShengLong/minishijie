@@ -1,0 +1,44 @@
+<!--pages/write/write.wxml-->
+<view class="container">
+    <!--商品信息-->
+    <block wx:for="{{details}}" wx:key wx:for-index="findex">  
+    <view class="product whitebg">
+        <image src="{{item.d_img}}"></image>
+        <view>
+            <view>{{item.d_name}}</view>
+            <view class="mt50">
+                <text class="blue bold ft32">￥{{item.d_price}}</text>
+                <text>x{{item.d_num}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="write">
+        <view class="whitebg">
+            <view class="star-pos">
+                <image class='stars' bindtap="changeColor" data-findex="{{findex}}" data-index='{{findex}}' data-no="{{item}}" wx:for="{{stardata}}"  wx:for-item="items" wx:for-index="cindex" data-cindex="{{cindex}}" src="{{flag[findex]>=cindex? '../../images/icon21.png': '../../images/icon20.png'}}" wx:key/>
+            </view>
+            <view class="mt20">{{startext[findex]}}</view>
+            <textarea placeholder="请描述产品……" bindinput="text" data-index="{{findex}}"></textarea>
+            <view class="addImv">
+                <!--这个是已经选好的图片-->
+                <block wx:for="{{imgArr[findex]}}" wx:key="key">
+                    <view class="upFile" bindtap="showImage" data-id="{{index}}" >
+                        <image class="itemImv" src="{{item}}"></image>
+                        <image class="closeImv" src="../../images/delete.png" mode="scaleToFill" catchtap="deleteImv" data-id="{{index}}" data-index="{{findex}}"></image>
+                    </view>
+                </block>
+                <!--这个是选择图片-->
+                <view class="chooseView" bindtap="chooseImage" wx:if="{{chooseViewShow}}" data-index="{{findex}}">
+                    <image class="chooseImv" src="../../images/add.png"></image>
+                </view>
+            </view>
+        </view>
+        </view>
+        </block>
+        <navigator url hover-class="none">
+            <view class="submit">
+                <button type="button" class="bluebg white" bindtap="save" >发布</button>
+            </view>
+        </navigator>
+    
+</view>

@@ -1,0 +1,22 @@
+<!--pages/set/feedback.wxml-->
+<view class="container">
+    <view class="feedback whitebg">
+        <textarea placeholder="感谢您对食品商城的支持,我们期待您的宝贵意见，请点击输入...." bindinput="ins"></textarea>
+        <view class="addImv">
+            <!--这个是已经选好的图片-->
+            <block wx:for="{{imgArr}}" wx:key="key">
+                <view class="upFile" bindtap="showImage" data-id="{{index}}">
+                    <image class="itemImv" src="{{item}}"></image>
+                    <image class="closeImv" src="../../images/delete.png" mode="scaleToFill" catchtap="deleteImv" data-id="{{index}}"></image>
+                </view>
+            </block>
+            <!--这个是选择图片-->
+            <view class="chooseView" bindtap="chooseImage" wx:if="{{chooseViewShow}}">
+                <image class="chooseImv" src="../../images/add.png"></image>
+            </view>
+        </view>
+    </view>
+    <view class="submit">
+        <button type="button" class="bluebg white" bindtap="feedback">提交</button>
+    </view>
+</view>

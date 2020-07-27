@@ -1,0 +1,89 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/tips/tips",
+        "pages/tips/tips1",
+        "pages/tips/tips2",
+        "pages/collect/collect",
+        "pages/contact/contact",
+        "pages/shopping/shopping",
+        "pages/search/search",
+        "pages/search/result",
+        "pages/authorization/authorization",
+        "pages/details/details",
+        "pages/order/order",
+        "pages/success/success",
+        "pages/category/category",
+        "pages/personal/personal",
+        "pages/integral/rule",
+        "pages/integral/integral",
+        "pages/integral/bill",
+        "pages/popularize/order",
+        "pages/popularize/popularize",
+        "pages/myorder/myorder",
+        "pages/myorder/refundDetails",
+        "pages/myorder/refundList",
+        "pages/myorder/refund",
+        "pages/myorder/details",
+        "pages/myorder/logistics",
+        "pages/myorder/writelogistics",
+        "pages/wallet/wallet",
+        "pages/topups/topups",
+        "pages/topups/bill",
+        "pages/topups/bills",
+        "pages/topups/details",
+        "pages/set/set",
+        "pages/set/about",
+        "pages/set/modifyph",
+        "pages/set/modifypw",
+        "pages/set/feedback",
+        "pages/evaluation/evaluation",
+        "pages/evaluation/write",
+        "pages/address/address",
+        "pages/address/modify",
+        "pages/login/login",
+        "pages/data/data",
+        "pages/pay/pay",
+        "pages/bind/bind",
+        "pages/info/info",
+        "pages/promotion/promotion"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "食界集采",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "selectedColor": "#2A89FF",
+        "color": "#808080",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "images/Tabber_1.png",
+                "selectedIconPath": "images/Tabber_01.png"
+            },
+            {
+                "pagePath": "pages/category/category",
+                "text": "分类",
+                "iconPath": "images/Tabber_2.png",
+                "selectedIconPath": "images/Tabber_02.png"
+            },
+            {
+                "pagePath": "pages/shopping/shopping",
+                "text": "购物车",
+                "iconPath": "images/Tabber_3.png",
+                "selectedIconPath": "images/Tabber_03.png"
+            },
+            {
+                "pagePath": "pages/personal/personal",
+                "text": "我的",
+                "iconPath": "images/Tabber_4.png",
+                "selectedIconPath": "images/Tabber_04.png"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
+}

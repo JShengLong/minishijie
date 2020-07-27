@@ -1,0 +1,25 @@
+<!--pages/list/list.wxml-->
+<view class='container'>
+    <!--列表-->
+    <view class='list'>
+        <block wx:for='{{list}}' wx:key="index">
+            <view class='list-main whitebg' data-index='{{item.id}}'>
+                <image src='{{item.p_img}}' bindtap='godetails' data-id='{{item.id}}'></image>
+                <view>
+                    <view class='twop mt20 ft30' bindtap='godetails'>{{item.p_name}}</view>
+                    <view class='pink bold mt20'>
+                        <text class='ft22'>￥</text>
+                        <text class='ft32'>{{item.p_oldprice}}</text>
+                    </view>
+                    <view class='list-buy mt20'>
+                        <text class="gary ft24">已售{{item.p_sales}}件</text>
+                        <view class='wish_list_box_collection'>
+                            <!-- 点赞过 -->
+                            <image src="../../images/icon21.png" data-id='{{item.id}}' bindtap="quxiao"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

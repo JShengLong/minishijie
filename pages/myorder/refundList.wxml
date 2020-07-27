@@ -1,0 +1,47 @@
+<!--pages/myorder/myorder.wxml-->
+<view class="container">
+    <view class="order">
+        <block wx:for="{{list}}" wx:key='index'>
+            <view class="order-mian whitebg">
+                <view class="order-title order-mian-flex">
+                    <text class="gary">订单编号：{{item.sn}}</text>
+                    <text class="blue" wx:if="{{item.refundReview==1}}">退款中</text>
+                    <text class="blue" wx:if="{{item.refundReview==2}}">同意</text>
+                    <text class="blue" wx:if="{{item.refundReview==3}}">成功</text>
+                    <text class="blue" wx:if="{{item.refundReview==4}}">驳回</text>
+                </view>
+                <view class="order-mian-flex mt20" bindtap="look" data-id="{{item.id}}">
+                    <image src="{{item.d_img}}"></image>
+                    <view>
+                        <view class="twop mt10`">{{item.d_name}}</view>
+                        <view class="garyb mt10">{{item.d_sku}}</view>
+                        <view class="order-mian-flex mt10">
+                            <text class="blue">￥{{item.total}}</text>
+                            <text>x{{item.d_num}}</text>
+                        </view>
+                        <view class="order-mian-flex mt10">
+                            <text >退款金额</text>
+                            <text>{{item.total}}</text>
+                        </view>
+                        <view class="order-mian-flex mt10">
+                            <text >退款积分</text>
+                            <text>{{item.integral}}</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="blue right mt20">
+                    <text class="ft24">合计：￥</text>
+                    <text class="ft36">{{item.d_total}}</text>
+                </view>
+                <view class="order-mian-flex order-mian-flex-button mt20">
+                     <text bindtap="looks" data-id="{{item.id}}" data-p_id="{{item.d_productId}}" data-num="{{item.d_num}}" data-sku_id="{{item.d_sku_id}}">再次购买</text>
+                    <text bindtap="writelogistics" wx:if="{{item.status==2 &&item.refundReview==2}}" data-id="{{item.id}}">填写物流</text>
+                    <text bindtap="delete"  wx:if="{{item.refundReview==4 ||item.refundReview==3  }}" data-id="{{item.id}}">删除</text>
+                    <text bindtap="refund" data-o_id="{{item.order_id}}" data-d_id="{{item.oid}}" wx:if="{{item.refundReview==4}}">申请退款</text>
+                    <text bindtap="details" data-id="{{item.id}}" >退款详情</text>
+
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
